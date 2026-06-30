@@ -12,6 +12,7 @@ import {
 import { PageHeader, Panel } from "@/components/dashboard/panel";
 import { EmptyState } from "@/components/dashboard/empty-state";
 import { StatusPill, SegmentPill, MessageStatusPill } from "@/components/dashboard/status-pill";
+import { RunCampaignButton } from "@/components/dashboard/run-campaign-button";
 import {
   getCampaigns,
   getSequenceSteps,
@@ -64,6 +65,8 @@ export default async function CampaignsPage() {
 function CampaignCard({ view }: { view: CampaignView }) {
   const { campaign, steps, totalMessages, sent, replied, sendMode } = view;
   const isLive = sendMode === "live";
+  // Any step still holding draft messages → the primary action sends them.
+  const hasDrafts = steps.some((sv) => (sv.counts.draft ?? 0) > 0);
 
   return (
     <section className="rounded-card border border-line bg-paper">
@@ -89,7 +92,7 @@ function CampaignCard({ view }: { view: CampaignView }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <StatusPill tone={isLive ? "good" : "accent"}>
             {isLive ? (
               <Radio className="size-3" aria-hidden="true" />
@@ -98,6 +101,7 @@ function CampaignCard({ view }: { view: CampaignView }) {
             )}
             {isLive ? "Live" : "Dry-run"}
           </StatusPill>
+          <RunCampaignButton campaignId={campaign.id} hasDrafts={hasDrafts} />
         </div>
       </header>
 
