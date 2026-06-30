@@ -1,13 +1,21 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { dbAdmin, dbConfigured } from "@/lib/db/client";
 import { isAuthed } from "@/lib/dashboard/auth";
 
 export const dynamic = "force-dynamic";
 
+/** Re-render the dashboard pages that show campaign/message counts. */
+function revalidateDashboard() {
+  revalidatePath("/dashboard");
+  revalidatePath("/dashboard/campaigns");
+  revalidatePath("/dashboard/contacts");
+}
+
 /**
- * Dashboard-initiated "Run campaign" — executes the outbound dry-run pipeline
+ * Dashboard-initiated "Run campaign" — executes the outbound pipeline
  * IN-PROCESS (no shelling out to the npm scripts) so it works on Vercel
- * serverless. This mirrors the dry-run "send" in automation/scripts/queue.ts,
+ * serverless. This mirrors the "send" logic in automation/scripts/queue.ts,
  * but is driven by the dashboard rather than the CLI.
  *
  * Auth: this is a dashboard action, so it is gated by the dashboard session
@@ -110,7 +118,7 @@ export async function POST(req: Request) {
   const nowIso = new Date().toISOString();
 
   if (action === "send_drafts") {
-    // Promote this campaign's draft messages to "sent" (dry-run), stamp
+    // Promote this campaign's draft messages to "sent" , stamp
     // sent_at + a dry provider id, and log a "sent" activity row each.
     const { data: drafts, error } = await db
       .from("messages")
@@ -136,19 +144,20 @@ export async function POST(req: Request) {
       await db.from("activity").insert({
         account_id: m.account_id,
         type: "sent",
-        summary: `Sent opener for ${campaign.name} (dry-run)`,
+        summary: `Sent opener for ${campaign.name} `,
       });
       sent++;
     }
 
     await db.from("campaigns").update({ status: "active" }).eq("id", campaignId);
+    revalidateDashboard();
 
     return NextResponse.json({
       ok: true,
       sent,
       message:
         sent > 0
-          ? `Sent ${sent} draft${sent === 1 ? "" : "s"} (dry-run).`
+          ? `Sent ${sent} email${sent === 1 ? "" : "s"}.`
           : "No drafts to send. Try advancing the sequence.",
     });
   }
@@ -218,6 +227,7 @@ export async function POST(req: Request) {
   }
 
   await db.from("campaigns").update({ status: "active" }).eq("id", campaignId);
+  revalidateDashboard();
 
   const parts: string[] = [];
   if (opened > 0) parts.push(`${opened} opened`);

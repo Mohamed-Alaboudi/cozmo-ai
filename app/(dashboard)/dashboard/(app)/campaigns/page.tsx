@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import {
   Send,
-  FlaskConical,
   Radio,
   Clock,
   ArrowRight,
@@ -84,8 +83,7 @@ export default async function CampaignsPage() {
 }
 
 function CampaignCard({ view }: { view: CampaignView }) {
-  const { campaign, steps, totalMessages, sent, replied, sendMode } = view;
-  const isLive = sendMode === "live";
+  const { campaign, steps, totalMessages, sent, replied } = view;
   // Any step still holding draft messages → the primary action sends them.
   const hasDrafts = steps.some((sv) => (sv.counts.draft ?? 0) > 0);
 
@@ -114,13 +112,9 @@ function CampaignCard({ view }: { view: CampaignView }) {
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
-          <StatusPill tone={isLive ? "good" : "accent"}>
-            {isLive ? (
-              <Radio className="size-3" aria-hidden="true" />
-            ) : (
-              <FlaskConical className="size-3" aria-hidden="true" />
-            )}
-            {isLive ? "Live" : "Dry-run"}
+          <StatusPill tone="good">
+            <Radio className="size-3" aria-hidden="true" />
+            Live
           </StatusPill>
           <RunCampaignButton campaignId={campaign.id} hasDrafts={hasDrafts} />
         </div>

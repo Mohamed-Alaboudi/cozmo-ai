@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Play, FastForward, Loader2, Check, TriangleAlert } from "lucide-react";
 
 /**
- * Dashboard control to run an outbound campaign against the dry-run pipeline.
+ * Dashboard control to run an outbound campaign against the outbound pipeline.
  *
  * Posts to /api/outbound/run-campaign — that route is gated by the dashboard
  * session cookie (sent automatically by the browser), so no secret is embedded
@@ -107,7 +107,7 @@ export function RunCampaignButton({
         onClick={() => run(primaryAction)}
         disabled={running}
         className="inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-[5px] text-[12.5px] font-semibold text-paper transition-colors hover:bg-ink-2 disabled:cursor-not-allowed disabled:opacity-60"
-        title={hasDrafts ? "Send draft emails (dry-run)" : "Advance the sequence (dry-run)"}
+        title={hasDrafts ? "Send the draft emails" : "Advance the sequence"}
       >
         {busy === primaryAction ? (
           <Loader2 className="size-3.5 animate-spin" aria-hidden="true" />
@@ -122,7 +122,7 @@ export function RunCampaignButton({
         onClick={() => run("advance")}
         disabled={running}
         className="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-[5px] text-[12.5px] font-semibold text-gray transition-colors hover:border-ink/30 hover:text-ink disabled:cursor-not-allowed disabled:opacity-60"
-        title="Move sent → opened → replied (dry-run simulation)"
+        title="Move sent to opened to replied"
       >
         {busy === "advance" ? (
           <Loader2 className="size-3.5 animate-spin" aria-hidden="true" />

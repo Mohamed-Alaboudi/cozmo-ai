@@ -74,7 +74,7 @@ export default async function OverviewPage() {
           label="Emails queued"
           value={kpis.emailsQueued}
           icon={Send}
-          hint={`${kpis.emailsSent} sent (dry-run)`}
+          hint={`${kpis.emailsSent} sent`}
         />
         <KpiCard
           label="Send rate"

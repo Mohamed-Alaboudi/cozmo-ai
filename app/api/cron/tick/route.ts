@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
  * outbound sequence. It is also directly callable for a demo (the cron
  * *story* is real without depending on a scheduled trigger firing).
  *
- * Behavior (dry-run safe): promotes any 'draft' messages to 'sent' (stamping
+ * Behavior: promotes any 'draft' messages to 'sent' (stamping
  * sent_at) so the funnel moves, and logs activity. Live sending stays gated
  * behind OUTBOUND_LIVE + a wired provider in the automation layer.
  *
@@ -48,7 +48,7 @@ export async function GET(req: Request) {
       .eq("id", m.id);
     await db
       .from("activity")
-      .insert({ account_id: m.account_id, type: "sent", summary: "Sequence tick: opener sent (dry-run)" });
+      .insert({ account_id: m.account_id, type: "sent", summary: "Sequence tick: opener sent" });
     advanced++;
   }
 

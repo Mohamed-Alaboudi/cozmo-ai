@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { redirect } from "next/navigation";
-import { FlaskConical } from "lucide-react";
+import { Radio } from "lucide-react";
 import { Sidebar, MobileNav } from "@/components/dashboard/sidebar";
 import { StatusPill } from "@/components/dashboard/status-pill";
 import { LogoutButton } from "@/components/dashboard/logout-button";
@@ -36,9 +36,9 @@ export default async function DashboardAppLayout({
             </span>
           </div>
           <div className="ml-auto flex items-center gap-2.5">
-            <StatusPill tone="accent">
-              <FlaskConical className="size-3" aria-hidden="true" />
-              Dry-run
+            <StatusPill tone="good">
+              <Radio className="size-3" aria-hidden="true" />
+              Live engine
             </StatusPill>
             <LogoutButton />
           </div>

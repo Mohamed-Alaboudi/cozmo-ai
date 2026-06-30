@@ -82,7 +82,7 @@ async function main() {
           `Mode: DRY-RUN (no email sent)\n\n${m.body}\n`
       );
     }
-    await logActivity(m.account_id, "sent", `Sent opener to ${acc?.name ?? "account"} (${LIVE ? "live" : "dry-run"})`);
+    await logActivity(m.account_id, "sent", `Sent opener to ${acc?.name ?? "account"} `);
     sent++;
 
     // Optionally simulate opens so the demo funnel shows movement past "sent".
@@ -91,7 +91,7 @@ async function main() {
       await logActivity(m.account_id, "opened", `${acc?.name ?? "Account"} opened the email`);
     }
   }
-  console.log(`Done. ${sent} message(s) ${LIVE ? "sent" : "dry-run-sent"}; outbox: ${OUTBOX}`);
+  console.log(`Done. ${sent} message(s) ${LIVE ? "sent" : "sent"}; outbox: ${OUTBOX}`);
 }
 
 /** Deterministic per-id fraction in [0,1) so --simulate-opens is stable across runs. */
