@@ -30,12 +30,11 @@ outcome back into the `cozmo` Supabase schema.
 | `lookup_account` | `tool_7701kwbtsxgwf7988w784kc6d5b9` | `POST /api/agent/lookup_account` |
 | `take_message` | `tool_9301kwbtsxpfe1majpppnjbw2b99` | `POST /api/agent/take_message` |
 
-> ⚠️ These tool IDs currently point at a **dead Cloudflare quick-tunnel**
-> (`circus-silk-higher-follows.trycloudflare.com`) from the original build. The
-> conversation will still run, but tool calls will fail until the tools are
-> re-pointed at a stable public origin (the deployed Cozmo Vercel URL). To fix:
-> register fresh tools against the deployed host and re-attach them to the agent
-> (see "Re-pointing the tools").
+> ✅ [2026-06-30] All four tools point at the **deployed production origin**
+> `https://cozmo-outbound.vercel.app/api/agent/*` (each carries the
+> `x-agent-secret` header). Verified end-to-end: a `log_interest` call with a
+> real `call_id` updated the backing `cozmo.calls` row. If the deployed host
+> changes, re-point them (see "Re-pointing the tools").
 
 ## The system prompt
 

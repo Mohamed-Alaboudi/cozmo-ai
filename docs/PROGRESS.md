@@ -6,6 +6,21 @@ This is portable long-term memory: track failed approaches so future sessions do
 
 ---
 
+## 2026-06-30 (later) — tool webhooks live
+
+The 4 ElevenLabs tool webhooks were re-pointed off the dead Cloudflare tunnel to the
+**deployed production origin** `https://cozmo-outbound.vercel.app/api/agent/*` (Vercel
+project `cozmo-outbound`, team personal-3f062084). Deployed the current branch to prod
+first (the `/api/agent/*` routes had never been deployed — they 404'd live), verified
+each route returns 200 with the secret gate working, then PATCHed each tool's
+`api_schema.url` (preserving the `x-agent-secret` header + body schema). Proven
+end-to-end: a `log_interest` call with a real `call_id` flipped the backing
+`cozmo.calls` row's `outcome` to `interest_interested`. The earlier "known follow-up"
+about dead tool webhooks is now resolved. Demo-booking / CRM writes work.
+
+Note: the Vercel MCP token can't reach this team (SAML scope error); used the `vercel`
+CLI directly. `book_demo`/`take_message`/`log_interest`/`lookup_account` all 200.
+
 ## 2026-06-30
 
 **Cozmo phone agent rebuilt and shipped — READY.** The live ElevenLabs Conversational AI
