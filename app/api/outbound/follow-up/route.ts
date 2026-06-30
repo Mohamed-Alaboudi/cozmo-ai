@@ -46,6 +46,9 @@ export async function POST(req: Request) {
   if (!body.accountId || !body.to) {
     return NextResponse.json({ ok: false, error: "accountId and to (E.164) required" }, { status: 400 });
   }
+  if (!/^\+[1-9]\d{6,14}$/.test(body.to)) {
+    return NextResponse.json({ ok: false, error: "to must be a valid E.164 number" }, { status: 400 });
+  }
 
   const db = dbAdmin();
   const { data: acc } = await db
