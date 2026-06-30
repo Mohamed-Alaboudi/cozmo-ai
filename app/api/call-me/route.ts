@@ -31,7 +31,12 @@ function normalize(raw: string): string | null {
 }
 
 export async function POST(req: Request) {
-  let body: { phone?: string; name?: string; honeypot?: string };
+  let body: {
+    phone?: string;
+    name?: string;
+    email?: string;
+    honeypot?: string;
+  };
   try {
     body = await req.json();
   } catch {

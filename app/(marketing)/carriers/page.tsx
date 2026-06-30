@@ -50,8 +50,6 @@ export default function CarriersPage() {
         h1={hero.h1}
         sub={hero.sub}
         heroStat={hero.heroStat}
-        scene={hero.phone}
-        image="/brand/hero-carriers.png"
       />
 
       <StatStrip stats={stats} tone="surface" />
@@ -87,6 +85,8 @@ export default function CarriersPage() {
 
       <ProofQuote proof={proof} />
 
+      <DemoSection eyebrow={cta.eyebrow} title={cta.title} sub={cta.sub} />
+
       {/* Content carries no FAQ heading by design, so the page supplies it. */}
       <Faq
         eyebrow="FAQ"
@@ -94,8 +94,6 @@ export default function CarriersPage() {
         faqs={faqs}
         tone="surface"
       />
-
-      <DemoSection eyebrow={cta.eyebrow} title={cta.title} sub={cta.sub} />
     </>
   );
 }

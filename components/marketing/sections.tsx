@@ -75,15 +75,10 @@ import {
   Plug,
 } from "lucide-react";
 
-import { Card } from "@/components/ui/card";
-import { LinkButton } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { Container, Display, H2, Lede, Section } from "@/components/ui/section";
-import { LogoMark } from "@/components/ui/logo";
-import { CallMeForm } from "@/components/voice/call-me-form";
-import { PhoneCallMe } from "@/components/voice/phone-call-me";
+import { PhoneCallForm } from "@/components/voice/phone-call-form";
 import { PhoneFrame } from "@/components/voice/phone-frame";
-import { CalendlySection } from "@/components/marketing/calendly-section";
 
 import { homeowners } from "@/lib/content/homeowners";
 import { contractors } from "@/lib/content/contractors";
@@ -216,30 +211,39 @@ function SectionHeading({
   );
 }
 
+/** Primary "Book a demo" CTA → HubSpot scheduler, opens in a new tab.
+ *  Reuses the accent button look without importing the Link-based LinkButton. */
+function DemoButton({
+  children,
+  size = "md",
+  className,
+}: {
+  children: ReactNode;
+  size?: "md" | "lg";
+  className?: string;
+}) {
+  return (
+    <a
+      href={SITE.demoUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cn(
+        "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-accent font-semibold text-white transition-colors duration-200 hover:bg-accent-hi",
+        size === "lg" ? "h-[54px] px-7 text-[15px]" : "h-11 px-5 text-[14px]",
+        className,
+      )}
+    >
+      {children}
+    </a>
+  );
+}
+
 /** Round hairline icon chip (ink glyph; accent is rationed elsewhere). */
 function IconBadge({ name }: { name: string }) {
   return (
     <span className="inline-grid size-12 place-items-center rounded-full border border-line text-ink">
       <Icon name={name} className="size-5" />
     </span>
-  );
-}
-
-/** Gold corner brackets on a framed photo (accent, so set inline). */
-function PhotoBrackets() {
-  return (
-    <>
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute left-4 top-4 size-5 border-l-2 border-t-2"
-        style={{ borderColor: "var(--color-accent)" }}
-      />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-4 right-4 size-5 border-b-2 border-r-2"
-        style={{ borderColor: "var(--color-accent)" }}
-      />
-    </>
   );
 }
 
@@ -278,69 +282,41 @@ function AccentHeadline({ text }: { text: string }) {
    PhoneStage - the dark device on the light page
    ============================================================ */
 
-export function PhoneStage({ scene }: { scene: PhoneScene }) {
-  const caller = scene.transcript.find((l) => l.speaker === "caller");
-  const cozmo = scene.transcript.find((l) => l.speaker === "cozmo");
-
+export function PhoneStage(_props?: { scene?: PhoneScene }) {
   return (
     <PhoneFrame>
-      <div className="flex h-full flex-col px-5 pb-5 pt-3 text-white">
-        {/* brand + live timer */}
-        <div className="flex items-center justify-between">
-          <span className="inline-flex items-center gap-2">
-            <span
-              className="grid size-7 place-items-center rounded-full bg-accent/15 text-accent-hi"
-              style={{ boxShadow: "inset 0 0 0 1px var(--color-accent)" }}
-            >
-              <LogoMark className="size-3.5" />
-            </span>
-            <span className="font-disp text-[15px] font-semibold tracking-[-0.01em] text-white">
-              Cozmo
-            </span>
-          </span>
-          <span
-            className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-2.5 py-1"
-            style={{ boxShadow: "inset 0 0 0 1px var(--color-line-d)" }}
-          >
-            <span className="relative flex size-1.5" aria-hidden="true">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70" />
-              <span className="relative inline-flex size-1.5 rounded-full bg-accent-hi" />
-            </span>
-            <span className="tabular text-[11px] text-white/70">
-              {scene.timer}
-            </span>
-          </span>
-        </div>
+      <div className="relative flex h-full flex-col px-6 pb-6 pt-2 text-white">
+        {/* ambient accent glow behind the content */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-[22%] -z-0 size-56 -translate-x-1/2 rounded-full bg-accent/10 blur-[64px]"
+        />
 
-        {/* live-call context */}
-        <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.22em] text-accent-hi">
-          {scene.badge}
-        </p>
-        <p className="mt-1.5 text-[11.5px] text-white/45">{scene.callerMeta}</p>
+        {/* centered brand logo in a glass card */}
+        <div className="relative z-10 flex flex-col items-center pt-3">
+          <div className="mb-5 flex size-28 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/[0.04] p-1 backdrop-blur-md">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/brand/cozmo-icon.png"
+              alt="Cozmo"
+              className="size-full rounded-full object-contain"
+            />
+          </div>
 
-        {/* a thin transcript touch */}
-        <div className="mt-4 space-y-2.5">
-          {caller ? (
-            <p className="max-w-[86%] rounded-[13px] rounded-tl-[3px] bg-white/[0.07] px-3 py-2 text-[12.5px] leading-[1.45] text-white/85">
-              {caller.text}
-            </p>
-          ) : null}
-          {cozmo ? (
-            <p className="ml-auto max-w-[90%] rounded-[13px] rounded-tr-[3px] bg-accent px-3 py-2 text-right text-[12.5px] leading-[1.45] text-white">
-              {cozmo.text}
-            </p>
-          ) : null}
-        </div>
-
-        {/* the call-me form is the focus, pinned to the bottom */}
-        <div className="mt-auto pt-5">
-          <p
-            className="mb-4 border-t pt-4 font-disp text-[16px] font-semibold tracking-[-0.01em] text-white"
-            style={{ borderColor: "var(--color-line-d)" }}
-          >
-            Have Cozmo call you
+          {/* eyebrow + heading */}
+          <p className="text-[10px] font-bold uppercase tracking-[0.26em] text-accent-hi">
+            Interactive demo
           </p>
-          <PhoneCallMe />
+          <h3 className="mt-2 text-center font-disp text-[26px] font-semibold leading-tight tracking-[-0.01em] text-white">
+            Call Cozmo&rsquo;s
+            <br />
+            <span className="italic text-accent-hi">AI agent</span>
+          </h3>
+        </div>
+
+        {/* the call-me form, pinned toward the bottom */}
+        <div className="relative z-10 mt-auto pt-6">
+          <PhoneCallForm />
         </div>
       </div>
     </PhoneFrame>
@@ -356,14 +332,13 @@ export function Hero({
   h1,
   sub,
   heroStat,
-  scene,
-  image,
 }: {
   eyebrow: string;
   h1: string;
   sub: string;
   heroStat: Stat;
-  scene: PhoneScene;
+  /** Legacy props — no longer rendered (phone is logo+form, no photo). */
+  scene?: PhoneScene;
   image?: string;
 }) {
   return (
@@ -381,20 +356,11 @@ export function Hero({
             </Display>
             <Lede className="mt-6 max-w-[44ch]">{sub}</Lede>
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <LinkButton href="#demo" size="lg" className="w-full sm:w-auto">
+            <div className="mt-9 flex">
+              <DemoButton size="lg" className="w-full sm:w-auto">
                 Book a demo
                 <ArrowRight className="size-4" aria-hidden="true" />
-              </LinkButton>
-              <LinkButton
-                href={SITE.demoPhoneHref}
-                variant="secondary"
-                size="lg"
-                className="w-full sm:w-auto"
-              >
-                <Phone className="size-4" aria-hidden="true" />
-                Hear it live
-              </LinkButton>
+              </DemoButton>
             </div>
 
             <div className="mt-11 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-line pt-7">
@@ -414,49 +380,10 @@ export function Hero({
             </div>
           </Reveal>
 
-          {/* media: framed grayscale photo + the dark phone over its right */}
-          {image ? (
-            <Reveal
-              delay={120}
-              className="relative mx-auto w-full max-w-[440px] sm:max-w-[560px] lg:max-w-[640px]"
-            >
-              {/* mobile: photo band above, phone overlapping its lower edge */}
-              <div className="relative mb-[-46px] aspect-[16/10] overflow-hidden rounded-card border border-line sm:hidden">
-                <img
-                  src={image}
-                  alt=""
-                  className="absolute inset-0 h-full w-full object-cover [filter:grayscale(0.85)_contrast(1.03)_brightness(1.04)]"
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0)_28%,rgba(255,255,255,0.6)_100%)]"
-                />
-                <PhotoBrackets />
-              </div>
-
-              {/* sm+: framed photo sits behind, the phone over its right side */}
-              <div className="absolute inset-y-7 left-0 z-0 hidden w-[64%] overflow-hidden rounded-card border border-line sm:block">
-                <img
-                  src={image}
-                  alt=""
-                  className="absolute inset-0 h-full w-full object-cover [filter:grayscale(0.85)_contrast(1.03)_brightness(1.04)]"
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-[linear-gradient(118deg,rgba(255,255,255,0.85)_0%,rgba(255,255,255,0.3)_46%,rgba(255,255,255,0)_76%)]"
-                />
-                <PhotoBrackets />
-              </div>
-
-              <div className="relative z-10 flex justify-center sm:justify-end">
-                <PhoneStage scene={scene} />
-              </div>
-            </Reveal>
-          ) : (
-            <Reveal delay={120} className="flex justify-center lg:justify-end">
-              <PhoneStage scene={scene} />
-            </Reveal>
-          )}
+          {/* media: just the dark phone, centered in its column (no photo) */}
+          <Reveal delay={120} className="flex justify-center lg:justify-end">
+            <PhoneStage />
+          </Reveal>
         </div>
       </Container>
     </Section>
@@ -513,27 +440,24 @@ export function StatStrip({
   tone?: Tone;
 }) {
   const cols =
-    stats.length >= 4 ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-3";
+    stats.length >= 4 ? "grid-cols-2 lg:grid-cols-4" : "grid-cols-3";
   return (
     <>
       <CoverageMarquee />
       <Section tone={tone}>
         <Container>
-          <div className={cn("grid grid-cols-1 gap-x-10 gap-y-12", cols)}>
+          <div className={cn("grid gap-x-6 gap-y-10 sm:gap-x-10", cols)}>
             {stats.map((s, i) => (
               <Reveal key={s.label} delay={i * 70}>
-                <div
-                  className="border-t-2 pt-6"
-                  style={{ borderColor: "var(--color-ink)" }}
-                >
-                  <div className="tabular text-[clamp(42px,5vw,76px)] font-bold leading-[0.9] text-ink">
+                <div className="border-t border-line pt-5">
+                  <div className="tabular text-[clamp(30px,3.4vw,52px)] font-bold leading-[0.95] text-ink">
                     {s.value}
                   </div>
-                  <div className="mt-4 font-disp text-[16px] font-medium tracking-[-0.01em] text-ink">
+                  <div className="mt-3 font-disp text-[15px] font-medium tracking-[-0.01em] text-ink">
                     {s.label}
                   </div>
                   {s.sub ? (
-                    <div className="mt-2 text-[14px] leading-[1.5] text-gray">
+                    <div className="mt-1.5 text-[13px] leading-[1.45] text-gray">
                       {s.sub}
                     </div>
                   ) : null}
@@ -581,16 +505,16 @@ export function ProblemSection({
           ))}
         </div>
 
-        {/* the single accent moment: the resolution */}
-        <Reveal delay={140} className="mt-12 border-t border-line pt-8">
-          <div className="flex items-start gap-4 md:items-center md:gap-5">
+        {/* the single accent moment: the resolution, centered */}
+        <Reveal delay={140} className="mt-14 border-t border-line pt-12">
+          <div className="mx-auto flex max-w-[60ch] flex-col items-center text-center">
             <span
               aria-hidden="true"
-              className="mt-1 inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-accent text-white md:mt-0"
+              className="mb-5 inline-flex size-10 items-center justify-center rounded-full bg-accent text-white"
             >
               <ArrowRight className="size-4" />
             </span>
-            <p className="max-w-[62ch] font-disp text-[20px] font-medium leading-[1.3] tracking-[-0.01em] text-ink md:text-[24px]">
+            <p className="font-disp text-[22px] font-medium leading-[1.3] tracking-[-0.01em] text-ink md:text-[26px]">
               {resolution}
             </p>
           </div>
@@ -1005,40 +929,27 @@ export function DemoSection({
       <Container>
         <SectionHeading eyebrow={eyebrow} title={title} sub={sub} align="center" />
 
-        <div className="mx-auto mt-14 grid max-w-[1040px] items-start gap-6 lg:grid-cols-2 lg:gap-8">
-          {/* call-me card */}
-          <Reveal>
-            <Card glass className="h-full">
-              <h3 className="font-disp text-[22px] font-semibold tracking-[-0.01em] text-ink">
-                Have Cozmo call you
-              </h3>
-              <p className="mt-2 text-[14px] leading-[1.55] text-gray">
-                Enter your mobile and the agent dials you in about ten seconds.
-                Ask it anything a policyholder would.
-              </p>
-
-              <div className="mt-6">
-                <CallMeForm />
-              </div>
-
-              <div className="mt-6 flex items-center gap-2.5 border-t border-line pt-5 text-[14px] text-gray">
-                <Phone className="size-4 text-accent-text" aria-hidden="true" />
-                <span>
-                  Or dial{" "}
-                  <a
-                    href={SITE.demoPhoneHref}
-                    className="tabular font-medium text-ink underline decoration-line underline-offset-4 hover:text-accent-text"
-                  >
-                    {SITE.demoPhone}
-                  </a>
-                </span>
-              </div>
-            </Card>
+        {/* just the phone to call + a button to book a demo, centered */}
+        <div className="mt-14 flex flex-col items-center">
+          <Reveal className="flex justify-center">
+            <PhoneStage />
           </Reveal>
 
-          {/* calendly */}
-          <Reveal delay={80}>
-            <CalendlySection className="h-full" />
+          <Reveal delay={80} className="mt-10 flex flex-col items-center gap-4">
+            <DemoButton size="lg">
+              Book a demo
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </DemoButton>
+            <p className="flex items-center gap-2 text-[14px] text-gray">
+              <Phone className="size-4 text-accent-text" aria-hidden="true" />
+              Or dial{" "}
+              <a
+                href={SITE.demoPhoneHref}
+                className="tabular font-medium text-ink underline decoration-line underline-offset-4 hover:text-accent-text"
+              >
+                {SITE.demoPhone}
+              </a>
+            </p>
           </Reveal>
         </div>
       </Container>

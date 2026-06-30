@@ -65,6 +65,22 @@ export function Footer() {
                   {SITE.demoPhone}
                 </a>
               </li>
+              <li>
+                <Link
+                  href={SITE.privacyHref}
+                  className="text-[15px] font-light text-white/75 transition-colors hover:text-paper"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={SITE.termsHref}
+                  className="text-[15px] font-light text-white/75 transition-colors hover:text-paper"
+                >
+                  Terms of Service
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -85,27 +101,6 @@ export function Footer() {
           <p className="uppercase">{SITE.tagline}</p>
         </div>
       </Container>
-
-      {/* Ghost wordmark */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none select-none px-[var(--mgn)] pb-1"
-      >
-        <span
-          className="block whitespace-nowrap text-center font-disp font-bold leading-[0.9] tracking-[-0.045em]"
-          style={{
-            fontSize: "clamp(64px,18vw,220px)",
-            backgroundImage:
-              "linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.02))",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Cozmo
-        </span>
-      </div>
     </footer>
   );
 }

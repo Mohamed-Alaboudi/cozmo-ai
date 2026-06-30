@@ -32,8 +32,6 @@ export default function HomePage() {
         h1={home.hero.h1}
         sub={home.hero.sub}
         heroStat={home.hero.heroStat}
-        scene={home.hero.phone}
-        image="/brand/hero-home.png"
       />
 
       <StatStrip stats={home.stats} tone="surface" />
@@ -56,14 +54,14 @@ export default function HomePage() {
 
       <ProofQuote proof={home.proof} />
 
+      <DemoSection {...home.demo} />
+
       <Faq
         eyebrow="FAQ"
         title="Questions teams ask before going live"
         faqs={home.faqs}
         tone="surface"
       />
-
-      <DemoSection {...home.demo} />
     </>
   );
 }

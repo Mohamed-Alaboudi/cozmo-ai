@@ -8,8 +8,8 @@ import type { HomeContent } from "@/lib/content/types";
 export const home: HomeContent = {
   hero: {
     eyebrow: "The AI phone agent for insurance",
-    h1: "Every call answered, in your voice.",
-    sub: "Cozmo is the phone agent built for insurance. It handles first notice of loss, claim status, scheduling, and policy questions 24/7, then hands off with full context when a caller needs a person.",
+    h1: "Better customer experience delivered by AI workforce",
+    sub: "AI agents that never miss a phone call, answer text across any channel, and update your CRM so your team can focus on the work they signed up for.",
     heroStat: {
       value: "24/7",
       label: "Always answering",

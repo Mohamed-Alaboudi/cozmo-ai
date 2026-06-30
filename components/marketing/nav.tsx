@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Wordmark } from "@/components/ui/logo";
 import { LinkButton } from "@/components/ui/button";
-import { NAV_LINKS } from "@/lib/site";
+import { NAV_LINKS, SITE } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
 /** Signature easing - soft, fast-out / slow-settle. */
@@ -94,9 +94,11 @@ export function Nav() {
           })}
         </nav>
 
-        {/* Desktop CTA - the one accent pill */}
+        {/* Desktop CTA - the one accent pill → HubSpot scheduler */}
         <LinkButton
-          href="/#demo"
+          href={SITE.demoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           variant="accent"
           className="hidden md:inline-flex"
         >
@@ -152,7 +154,9 @@ export function Nav() {
               );
             })}
             <LinkButton
-              href="/#demo"
+              href={SITE.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               variant="accent"
               size="lg"
               className="mt-7 w-full"

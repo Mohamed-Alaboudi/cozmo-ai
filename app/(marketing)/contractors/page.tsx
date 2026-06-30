@@ -33,8 +33,6 @@ export default function ContractorsPage() {
         h1={contractors.hero.h1}
         sub={contractors.hero.sub}
         heroStat={contractors.hero.heroStat}
-        scene={contractors.hero.phone}
-        image="/brand/hero-contractors.png"
       />
 
       <StatStrip stats={contractors.stats} tone="surface" />
@@ -70,13 +68,13 @@ export default function ContractorsPage() {
 
       <ProofQuote proof={contractors.proof} />
 
-      <Faq title="Common questions" faqs={contractors.faqs} tone="surface" />
-
       <DemoSection
         eyebrow={contractors.cta.eyebrow}
         title={contractors.cta.title}
         sub={contractors.cta.sub}
       />
+
+      <Faq title="Common questions" faqs={contractors.faqs} tone="surface" />
     </>
   );
 }

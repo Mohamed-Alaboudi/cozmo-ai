@@ -42,8 +42,6 @@ export default function HomeownersPage() {
         h1={hero.h1}
         sub={hero.sub}
         heroStat={hero.heroStat}
-        scene={hero.phone}
-        image="/brand/hero-homeowners.png"
       />
 
       <StatStrip tone="surface" stats={stats} />
@@ -79,6 +77,8 @@ export default function HomeownersPage() {
 
       <ProofQuote proof={proof} />
 
+      <DemoSection eyebrow={cta.eyebrow} title={cta.title} sub={cta.sub} />
+
       {/* The locked content type carries faqs[] but no FAQ heading, so the page
           supplies this band's eyebrow + title (see reply note). */}
       <Faq
@@ -87,8 +87,6 @@ export default function HomeownersPage() {
         title="What agencies ask first"
         faqs={faqs}
       />
-
-      <DemoSection eyebrow={cta.eyebrow} title={cta.title} sub={cta.sub} />
     </>
   );
 }
