@@ -1,9 +1,10 @@
 /**
  * STAGE 2 — enrich: for each account missing enrichment, fetch its site text
- * (Exa) and have Claude extract a blurb, HQ, the best-fit Cozmo page, and a
- * "why this account" reason. Also creates a best-guess decision-maker contact.
+ * (Scrapling) and have OpenAI extract a blurb, HQ, the best-fit Cozmo page, a
+ * "why this account" reason, AND a decision-maker contact (name/title/email).
  *
  * Idempotent: only processes accounts where fit_reason IS NULL (or --all / --id).
+ * Runs LOCALLY (needs python3 + `pip install scrapling`, and OPENAI_API_KEY).
  *
  * Usage:
  *   npx tsx automation/scripts/enrich.ts             # all un-enriched
@@ -11,8 +12,8 @@
  *   npx tsx automation/scripts/enrich.ts --limit 20
  */
 import { db, logActivity } from "../lib/db";
-import { exaContents, exaConfigured } from "../lib/exa";
-import { claudeJson } from "../lib/claude";
+import { scrape } from "../lib/scrapling";
+import { openaiJson } from "../lib/openai";
 import { COZMO_CONTEXT } from "../lib/cozmo-context";
 import type { Enrichment } from "../lib/types";
 
@@ -29,12 +30,16 @@ async function enrichOne(acc: {
   domain: string | null;
   blurb: string | null;
 }) {
-  // Pull page text if we can; otherwise enrich from name + domain alone.
+  // Pull page text with Scrapling; otherwise enrich from name + domain alone.
   let siteText = acc.blurb ?? "";
-  if (exaConfigured && acc.website && siteText.length < 200) {
+  let pageLinks: string[] = [];
+  if (acc.website && siteText.length < 200) {
     try {
-      const [page] = await exaContents([acc.website]);
-      if (page?.text) siteText = page.text.slice(0, 2500);
+      const page = await scrape(acc.website, 2800);
+      if (page.ok && page.text) {
+        siteText = page.text.slice(0, 2500);
+        pageLinks = page.links ?? [];
+      }
     } catch {
       /* fall back to name-only enrichment */
     }
@@ -42,12 +47,13 @@ async function enrichOne(acc: {
 
   const prompt = `${COZMO_CONTEXT}
 
-You are qualifying a sales target for Cozmo. Here is the company:
+You are qualifying a sales target for Cozmo and pulling its best contact. Company:
 
 Name: ${acc.name}
 Segment (our guess): ${acc.segment}
 Website: ${acc.website ?? "unknown"}
 Site text (may be empty): """${siteText.slice(0, 2200)}"""
+Links found on the page (may include team/contact/about): ${pageLinks.slice(0, 25).join(", ") || "none"}
 
 The "Name" above may be a web-page title rather than the real company name
 (e.g. "Commercial Restoration Services Near You" for a domain like servpro.com).
@@ -61,12 +67,14 @@ Return a JSON object with these fields:
   "hq_state": "2-letter US state or empty string",
   "mapped_page": "homeowners | contractors | carriers — which Cozmo landing page best fits this account",
   "fit_reason": "one specific sentence: WHY this company is a good Cozmo target, referencing their actual business and the concrete call-volume / claims pain Cozmo would solve for them",
-  "contact_title_guess": "the job title of the most likely buyer, e.g. 'VP of Claims Operations'",
+  "contact_name": "the real name of the most likely buyer/decision-maker if it appears in the text, else empty string",
+  "contact_title_guess": "their job title, e.g. 'VP of Claims Operations' (best guess if not stated)",
+  "contact_email": "a real email address found in the text, else empty string (do NOT invent one)",
   "is_real_target": true if this is a real restoration/contractor or TPA/claims-admin company; false if it's a directory, listicle, blog, franchise-ranking, or aggregator (e.g. modernize.com, franchisechatter.com)
 }
-Be concrete and specific to THIS company. Do not invent facts not implied by the name/segment/site.`;
+Be concrete and specific to THIS company. Only use emails/names actually present in the text; otherwise leave them empty.`;
 
-  const e = await claudeJson<Enrichment>(prompt, { model: "claude-sonnet-4-6" });
+  const e = await openaiJson<Enrichment>(prompt);
 
   const mapped =
     e.mapped_page === "homeowners" || e.mapped_page === "contractors" || e.mapped_page === "carriers"
@@ -103,12 +111,20 @@ Be concrete and specific to THIS company. Do not invent facts not implied by the
     .eq("account_id", acc.id)
     .maybeSingle();
   if (!hasContact) {
+    const realName = (e.contact_name ?? "").trim();
+    const realEmail = (e.contact_email ?? "").trim();
+    const emailLooksReal = /.+@.+\..+/.test(realEmail);
     await db.from("contacts").insert({
       account_id: acc.id,
-      name: "(decision maker)",
+      name: realName || "(decision maker)",
       title: e.contact_title_guess?.slice(0, 120) ?? "VP, Claims Operations",
-      email: acc.domain ? `claims@${acc.domain}` : null,
-      confidence: "low",
+      email: emailLooksReal
+        ? realEmail.slice(0, 160)
+        : acc.domain
+        ? `claims@${acc.domain}`
+        : null,
+      // High confidence only when we found a real name AND a real email.
+      confidence: realName && emailLooksReal ? "high" : "low",
     });
   }
 

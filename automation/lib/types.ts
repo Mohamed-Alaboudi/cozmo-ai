@@ -19,7 +19,9 @@ export type Enrichment = {
   hq_state?: string;
   mapped_page: MappedPage;
   fit_reason: string;
+  contact_name?: string;
   contact_title_guess?: string;
+  contact_email?: string;
   is_real_target: boolean;
 };
 

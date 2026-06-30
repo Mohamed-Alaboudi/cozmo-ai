@@ -11,7 +11,7 @@
  *   npx tsx automation/scripts/personalize.ts --id <uuid>   # Workflow drives this
  */
 import { db, logActivity } from "../lib/db";
-import { claudeJson } from "../lib/claude";
+import { openaiJson } from "../lib/openai";
 import { COZMO_CONTEXT } from "../lib/cozmo-context";
 import type { Personalization } from "../lib/types";
 
@@ -61,7 +61,7 @@ Rules:
 
 Return JSON: { "subject": "...", "body": "..." }`;
 
-  const p = await claudeJson<Personalization>(prompt, { model: "claude-sonnet-4-6" });
+  const p = await openaiJson<Personalization>(prompt);
 
   const { data: contact } = await db
     .from("contacts")

@@ -13,7 +13,7 @@
 import { writeFileSync, readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { db, logActivity } from "../lib/db";
-import { exaSearch, exaConfigured } from "../lib/exa";
+import { openaiJson, openaiConfigured } from "../lib/openai";
 import type { Candidate, Segment } from "../lib/types";
 
 const SNAPSHOT = resolve(process.cwd(), "automation/data/accounts.snapshot.json");
@@ -50,32 +50,39 @@ const BLOCK = [
   "inc.com", "ibisworld.com", "statista.com", "g2.com", "clutch.co",
 ];
 
-async function discoverViaExa(): Promise<Candidate[]> {
+/**
+ * Discover candidate companies with OpenAI (no paid search API). For each query
+ * angle we ask the model for real, named companies + their primary domains. The
+ * model is grounded ("only well-known real companies, real domains") and results
+ * are deduped by domain + filtered through BLOCK. The curated fallback still
+ * augments this so the list is never empty.
+ */
+async function discoverViaOpenAI(): Promise<Candidate[]> {
   const byDomain = new Map<string, Candidate>();
   for (const { segment, q } of QUERIES) {
-    let results;
+    let rows: { name: string; domain: string }[] = [];
     try {
-      results = await exaSearch(q, { numResults: 20, text: false });
+      const res = await openaiJson<{ companies: { name: string; domain: string }[] }>(
+        `List up to 20 REAL, well-known US companies matching: "${q}".
+Only real companies that actually exist, with their real primary website domain
+(no www, no path). Exclude directories, listicles, blogs, and aggregators.
+Return JSON: { "companies": [ { "name": "Acme Restoration", "domain": "acme.com" }, ... ] }`,
+      );
+      rows = res.companies ?? [];
     } catch (e) {
-      console.warn(`  exa search failed for "${q}": ${(e as Error).message}`);
+      console.warn(`  openai discover failed for "${q}": ${(e as Error).message}`);
       continue;
     }
-    for (const r of results) {
-      const domain = domainOf(r.url);
+    for (const r of rows) {
+      const domain = domainOf(r.domain) ?? domainOf(`https://${r.domain}`);
       if (!domain || BLOCK.some((b) => domain.endsWith(b))) continue;
       if (byDomain.has(domain)) continue;
-      const name = (r.title ?? domain)
-        .replace(/\s*[|\-–—:].*$/, "") // strip "Company | tagline"
-        .replace(/\s+\d{4}.*$/, "")
-        .trim()
-        .slice(0, 80);
       byDomain.set(domain, {
-        name: name || domain,
+        name: (r.name || domain).trim().slice(0, 80),
         segment,
         website: `https://${domain}`,
         domain,
-        source_url: r.url,
-        blurb: r.text?.slice(0, 280),
+        source_url: `https://${domain}`,
       });
     }
     console.log(`  "${q.slice(0, 40)}..." -> ${byDomain.size} unique so far`);
@@ -131,9 +138,9 @@ async function main() {
   const forceSnapshot = process.argv.includes("--snapshot");
   let candidates: Candidate[] = [];
 
-  if (!forceSnapshot && exaConfigured) {
-    console.log("Discovering via Exa...");
-    candidates = await discoverViaExa();
+  if (!forceSnapshot && openaiConfigured) {
+    console.log("Discovering via OpenAI...");
+    candidates = await discoverViaOpenAI();
   }
 
   // Top up / fall back with curated real companies so we always have a usable list.

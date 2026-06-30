@@ -1,483 +1,243 @@
 [
   {
-    "name": "Commercial & Residential Restoration Services Near You",
-    "segment": "contractor",
-    "website": "https://servpro.com",
-    "domain": "servpro.com",
-    "source_url": "https://www.servpro.com/",
-    "rank": 1
-  },
-  {
-    "name": "Largest Independent Restoration Company",
-    "segment": "contractor",
-    "website": "https://restoration1.com",
-    "domain": "restoration1.com",
-    "source_url": "https://restoration1.com/",
-    "rank": 2
-  },
-  {
-    "name": "Disaster Restoration",
-    "segment": "contractor",
-    "website": "https://belfor.com",
-    "domain": "belfor.com",
-    "source_url": "https://www.belfor.com/us/en/",
-    "rank": 3
-  },
-  {
-    "name": "Residential & Commercial Restoration Services",
-    "segment": "contractor",
-    "website": "https://pauldavis.com",
-    "domain": "pauldavis.com",
-    "source_url": "https://pauldavis.com/",
-    "rank": 4
-  },
-  {
-    "name": "Remediation, Reconstruction & Demolition Experts",
-    "segment": "contractor",
-    "website": "https://atirestoration.com",
-    "domain": "atirestoration.com",
-    "source_url": "https://atirestoration.com/",
-    "rank": 5
-  },
-  {
-    "name": "Nationwide Catastrophe Response",
-    "segment": "contractor",
-    "website": "https://rmc.com",
-    "domain": "rmc.com",
-    "source_url": "https://rmc.com/national-catastrophe-response/",
-    "rank": 6
-  },
-  {
-    "name": "Premier National Restoration Service Provider in the US",
-    "segment": "contractor",
-    "website": "https://goblusky.com",
-    "domain": "goblusky.com",
-    "source_url": "https://www.goblusky.com/",
-    "rank": 7
-  },
-  {
-    "name": "National Commercial Property Restoration Company",
-    "segment": "contractor",
-    "website": "https://dkiservices.com",
-    "domain": "dkiservices.com",
-    "source_url": "https://www.dkiservices.com/commercial-services/what-we-do/",
-    "rank": 8
-  },
-  {
-    "name": "About ServiceMaster Restoration",
+    "name": "ServiceMaster Restore",
     "segment": "contractor",
     "website": "https://servicemasterrestore.com",
     "domain": "servicemasterrestore.com",
-    "source_url": "https://www.servicemasterrestore.com/why-us/about-us/",
-    "rank": 9
+    "source_url": "https://servicemasterrestore.com",
+    "rank": 1
   },
   {
-    "name": "Top Remodeling & Restoration Services",
+    "name": "BELFOR Property Restoration",
     "segment": "contractor",
-    "website": "https://americanrestores.com",
-    "domain": "americanrestores.com",
-    "source_url": "https://americanrestores.com/",
-    "rank": 10
+    "website": "https://belfor.com",
+    "domain": "belfor.com",
+    "source_url": "https://belfor.com",
+    "rank": 2
   },
   {
-    "name": "ACR Restores",
+    "name": "Paul Davis Restoration",
     "segment": "contractor",
-    "website": "https://acrrestores.com",
-    "domain": "acrrestores.com",
-    "source_url": "https://www.acrrestores.com/large-loss-property-adjuster",
-    "rank": 11
+    "website": "https://pauldavis.com",
+    "domain": "pauldavis.com",
+    "source_url": "https://pauldavis.com",
+    "rank": 3
   },
   {
-    "name": "15 Best Restoration Repair Companies in the USA for",
+    "name": "Rainbow International Restoration",
     "segment": "contractor",
-    "website": "https://bukrestoration.com",
-    "domain": "bukrestoration.com",
-    "source_url": "https://bukrestoration.com/restoration-repair-companies/",
-    "rank": 12
-  },
-  {
-    "name": "Best Restoration Companies in",
-    "segment": "contractor",
-    "website": "https://modernize.com",
-    "domain": "modernize.com",
-    "source_url": "https://modernize.com/restoration/water-damage/best-restoration-companies",
-    "rank": 13
-  },
-  {
-    "name": "Property Damage Services",
-    "segment": "contractor",
-    "website": "https://crbr.com",
-    "domain": "crbr.com",
-    "source_url": "https://crbr.com/",
-    "rank": 14
-  },
-  {
-    "name": "Top Restoration Service Franchises of",
-    "segment": "contractor",
-    "website": "https://franchisechatter.com",
-    "domain": "franchisechatter.com",
-    "source_url": "https://www.franchisechatter.com/2018/09/22/the-5-best-restoration-services-franchises-of-2018/",
-    "rank": 15
-  },
-  {
-    "name": "Storm Damage Contractor",
-    "segment": "contractor",
-    "website": "https://stocktonconstruction.net",
-    "domain": "stocktonconstruction.net",
-    "source_url": "https://www.stocktonconstruction.net/storm-prep-remediation/",
-    "rank": 16
-  },
-  {
-    "name": "National Disaster Solutions, Inc.",
-    "segment": "contractor",
-    "website": "https://ndsrecovery.com",
-    "domain": "ndsrecovery.com",
-    "source_url": "https://ndsrecovery.com/",
-    "rank": 17
-  },
-  {
-    "name": "TurnKey National",
-    "segment": "contractor",
-    "website": "https://turnkeynational.com",
-    "domain": "turnkeynational.com",
-    "source_url": "https://turnkeynational.com/",
-    "rank": 18
-  },
-  {
-    "name": "Baxter Restoration",
-    "segment": "contractor",
-    "website": "https://baxterrestoration.com",
-    "domain": "baxterrestoration.com",
-    "source_url": "https://baxterrestoration.com/",
-    "rank": 19
-  },
-  {
-    "name": "Disaster Restoration Services LLC",
-    "segment": "contractor",
-    "website": "https://drscleanup.com",
-    "domain": "drscleanup.com",
-    "source_url": "https://drscleanup.com/",
-    "rank": 20
-  },
-  {
-    "name": "2025 Top 500 Insurance Restoration",
-    "segment": "contractor",
-    "website": "https://qualifiedremodeler.com",
-    "domain": "qualifiedremodeler.com",
-    "source_url": "https://www.qualifiedremodeler.com/2025-top-500-insurance-restoration-value-in-service",
-    "rank": 21
-  },
-  {
-    "name": "Recovery Management Group, LLC",
-    "segment": "contractor",
-    "website": "https://recovery-management.com",
-    "domain": "recovery-management.com",
-    "source_url": "https://recovery-management.com/",
-    "rank": 22
-  },
-  {
-    "name": "A. Schoeneman & Co,. Inc",
-    "segment": "contractor",
-    "website": "https://aschoeneman.com",
-    "domain": "aschoeneman.com",
-    "source_url": "https://aschoeneman.com/",
-    "rank": 23
-  },
-  {
-    "name": "National Group",
-    "segment": "contractor",
-    "website": "https://nationalgroup.com",
-    "domain": "nationalgroup.com",
-    "source_url": "https://nationalgroup.com/",
-    "rank": 24
-  },
-  {
-    "name": "Nationwide Disaster Restoration",
-    "segment": "contractor",
-    "website": "https://nationwidedisasterrestoration.com",
-    "domain": "nationwidedisasterrestoration.com",
-    "source_url": "https://nationwidedisasterrestoration.com/",
-    "rank": 25
-  },
-  {
-    "name": "Advance Restoration LLC",
-    "segment": "contractor",
-    "website": "https://advancerestorations.com",
-    "domain": "advancerestorations.com",
-    "source_url": "https://advancerestorations.com/",
-    "rank": 26
-  },
-  {
-    "name": "Struction Solutions",
-    "segment": "contractor",
-    "website": "https://structionsolutions.com",
-    "domain": "structionsolutions.com",
-    "source_url": "https://structionsolutions.com/",
-    "rank": 27
-  },
-  {
-    "name": "Integrated Restoration",
-    "segment": "contractor",
-    "website": "https://integratedrestoration.us",
-    "domain": "integratedrestoration.us",
-    "source_url": "https://integratedrestoration.us/",
-    "rank": 28
-  },
-  {
-    "name": "SUREBUILD",
-    "segment": "contractor",
-    "website": "https://surebuildrestoration.com",
-    "domain": "surebuildrestoration.com",
-    "source_url": "https://surebuildrestoration.com/",
-    "rank": 29
-  },
-  {
-    "name": "United Restoration Disaster Services",
-    "segment": "contractor",
-    "website": "https://unitedrds.com",
-    "domain": "unitedrds.com",
-    "source_url": "https://unitedrds.com/",
-    "rank": 30
-  },
-  {
-    "name": "AmeriPro Roofing",
-    "segment": "contractor",
-    "website": "https://ameriproroofing.com",
-    "domain": "ameriproroofing.com",
-    "source_url": "https://www.ameriproroofing.com/",
-    "rank": 31
-  },
-  {
-    "name": "Roofing Services",
-    "segment": "contractor",
-    "website": "https://duffyroof.com",
-    "domain": "duffyroof.com",
-    "source_url": "https://duffyroof.com/",
-    "rank": 32
-  },
-  {
-    "name": "One Pro · National Roofing & Restoration Network",
-    "segment": "contractor",
-    "website": "https://onepro.us",
-    "domain": "onepro.us",
-    "source_url": "https://onepro.us/",
-    "rank": 33
-  },
-  {
-    "name": "Mitigation & Repair Network",
-    "segment": "contractor",
-    "website": "https://hancockclaims.com",
-    "domain": "hancockclaims.com",
-    "source_url": "https://hancockclaims.com/mitigation-and-repair-services/",
-    "rank": 34
-  },
-  {
-    "name": "Storm Recovery & Restoration",
-    "segment": "contractor",
-    "website": "https://p1mitigators.com",
-    "domain": "p1mitigators.com",
-    "source_url": "https://p1mitigators.com/",
-    "rank": 35
-  },
-  {
-    "name": "Storm Damage Restoration in Iowa",
-    "segment": "contractor",
-    "website": "https://godshandstormrestoration.com",
-    "domain": "godshandstormrestoration.com",
-    "source_url": "https://www.godshandstormrestoration.com/",
-    "rank": 36
-  },
-  {
-    "name": "Restoration",
-    "segment": "contractor",
-    "website": "https://nfrroofing.com",
-    "domain": "nfrroofing.com",
-    "source_url": "https://nfrroofing.com/roofing-installation-repair/restoration/",
-    "rank": 37
-  },
-  {
-    "name": "Elite Roofing and Consulting",
-    "segment": "contractor",
-    "website": "https://eliteroofingandconsulting.com",
-    "domain": "eliteroofingandconsulting.com",
-    "source_url": "https://eliteroofingandconsulting.com/",
-    "rank": 38
-  },
-  {
-    "name": "RENFROE®",
-    "segment": "contractor",
-    "website": "https://earenfroe.com",
-    "domain": "earenfroe.com",
-    "source_url": "https://www.earenfroe.com/",
-    "rank": 39
-  },
-  {
-    "name": "Join Accuserve’s Contractor Network",
-    "segment": "contractor",
-    "website": "https://accuserve.com",
-    "domain": "accuserve.com",
-    "source_url": "https://www.accuserve.com/contractor",
-    "rank": 40
-  },
-  {
-    "name": "Storm Damage Roofing in Maryland",
-    "segment": "contractor",
-    "website": "https://goldeneagleroofing-md.com",
-    "domain": "goldeneagleroofing-md.com",
-    "source_url": "https://www.goldeneagleroofing-md.com/storm-damage-roof-insurance-claims-specialist",
-    "rank": 41
-  },
-  {
-    "name": "rrca",
-    "segment": "contractor",
-    "website": "https://rrcausa.com",
-    "domain": "rrcausa.com",
-    "source_url": "https://rrcausa.com/",
-    "rank": 42
-  },
-  {
-    "name": "global disaster recovery usa, inc.",
-    "segment": "contractor",
-    "website": "https://gdrteam.com",
-    "domain": "gdrteam.com",
-    "source_url": "https://gdrteam.com/",
-    "rank": 43
-  },
-  {
-    "name": "good contractors roofing and restoration",
-    "segment": "contractor",
-    "website": "https://goodcontractorsroofing.com",
-    "domain": "goodcontractorsroofing.com",
-    "source_url": "https://goodcontractorsroofing.com/",
-    "rank": 44
-  },
-  {
-    "name": "Guide to Roof Damage Insurance Claims",
-    "segment": "contractor",
-    "website": "https://gaf.com",
-    "domain": "gaf.com",
-    "source_url": "https://www.gaf.com/en-us/plan-design/roofing-insurance-claims",
-    "rank": 45
-  },
-  {
-    "name": "cardinal catastrophe services, inc.",
-    "segment": "contractor",
-    "website": "https://cardinalcat.com",
-    "domain": "cardinalcat.com",
-    "source_url": "https://cardinalcat.com/",
-    "rank": 46
-  },
-  {
-    "name": "premier systems roofing",
-    "segment": "contractor",
-    "website": "https://premiersystemsroofing.com",
-    "domain": "premiersystemsroofing.com",
-    "source_url": "https://premiersystemsroofing.com/",
-    "rank": 47
-  },
-  {
-    "name": "reclaim construction, llc",
-    "segment": "contractor",
-    "website": "https://reclaimconstruct.com",
-    "domain": "reclaimconstruct.com",
-    "source_url": "https://reclaimconstruct.com/",
-    "rank": 48
-  },
-  {
-    "name": "National Restoration & Emergency Response Services",
-    "segment": "contractor",
-    "website": "https://sasser247.com",
-    "domain": "sasser247.com",
-    "source_url": "https://sasser247.com/location/national-restoration-emergency-response/",
-    "rank": 49
-  },
-  {
-    "name": "Water Damage Restoration Experts",
-    "segment": "contractor",
-    "website": "https://1800waterdamage.com",
-    "domain": "1800waterdamage.com",
-    "source_url": "https://www.1800waterdamage.com/",
-    "rank": 50
-  },
-  {
-    "name": "24/7 Emergency Restoration Services",
-    "segment": "contractor",
-    "website": "https://nationalrestorationexperts.com",
-    "domain": "nationalrestorationexperts.com",
-    "source_url": "https://nationalrestorationexperts.com/emergency-response/",
-    "rank": 51
-  },
-  {
-    "name": "EE&G Restoration of Houston, Texas",
-    "segment": "contractor",
-    "website": "https://eeandg.com",
-    "domain": "eeandg.com",
-    "source_url": "https://www.eeandg.com/eeg-restoration-of-houston-texas/",
-    "rank": 52
-  },
-  {
-    "name": "Disaster Recovery Experts",
-    "segment": "contractor",
-    "website": "https://disasterecoveryexperts.com",
-    "domain": "disasterecoveryexperts.com",
-    "source_url": "https://www.disasterecoveryexperts.com/",
-    "rank": 53
-  },
-  {
-    "name": "24 Hour Emergency Restoration Tampa",
-    "segment": "contractor",
-    "website": "https://911restorationtampabay.com",
-    "domain": "911restorationtampabay.com",
-    "source_url": "https://911restorationtampabay.com/24-hour-emergency-restoration-tampa-911-restoration/",
-    "rank": 54
-  },
-  {
-    "name": "Restoration Water Damage Restoration",
-    "segment": "contractor",
-    "website": "https://coit.com",
-    "domain": "coit.com",
-    "source_url": "https://www.coit.com/restoration-services/water-damage-restoration",
-    "rank": 55
-  },
-  {
-    "name": "Water, Fire & Mold Restoration in Phoenix",
-    "segment": "contractor",
-    "website": "https://greater-phoenix.pauldavis.com",
-    "domain": "greater-phoenix.pauldavis.com",
-    "source_url": "https://greater-phoenix.pauldavis.com/",
-    "rank": 56
-  },
-  {
-    "name": "National Disaster Recovery",
-    "segment": "contractor",
-    "website": "https://nationaldisasterrecovery.org",
-    "domain": "nationaldisasterrecovery.org",
-    "source_url": "https://nationaldisasterrecovery.org/",
-    "rank": 57
-  },
-  {
-    "name": "Home",
-    "segment": "contractor",
-    "website": "https://waterdamagespecialists.com",
-    "domain": "waterdamagespecialists.com",
-    "source_url": "https://waterdamagespecialists.com/",
-    "rank": 58
-  },
-  {
-    "name": "Water Damage Restoration Avondale AZ Expert Help",
-    "segment": "contractor",
-    "website": "https://r1avondale.com",
-    "domain": "r1avondale.com",
-    "source_url": "https://r1avondale.com/",
-    "rank": 59
+    "website": "https://rainbowintl.com",
+    "domain": "rainbowintl.com",
+    "source_url": "https://rainbowintl.com",
+    "rank": 4
   },
   {
     "name": "PuroClean",
-    "domain": "puroclean.com",
     "segment": "contractor",
     "website": "https://puroclean.com",
+    "domain": "puroclean.com",
     "source_url": "https://puroclean.com",
-    "rank": 60
+    "rank": 5
+  },
+  {
+    "name": "Stanley Steemer",
+    "segment": "contractor",
+    "website": "https://stanleysteemer.com",
+    "domain": "stanleysteemer.com",
+    "source_url": "https://stanleysteemer.com",
+    "rank": 6
+  },
+  {
+    "name": "SERVPRO",
+    "segment": "contractor",
+    "website": "https://servpro.com",
+    "domain": "servpro.com",
+    "source_url": "https://servpro.com",
+    "rank": 7
+  },
+  {
+    "name": "Dri-Eaz",
+    "segment": "contractor",
+    "website": "https://dri-eaz.com",
+    "domain": "dri-eaz.com",
+    "source_url": "https://dri-eaz.com",
+    "rank": 8
+  },
+  {
+    "name": "AdvantaClean",
+    "segment": "contractor",
+    "website": "https://advantaclean.com",
+    "domain": "advantaclean.com",
+    "source_url": "https://advantaclean.com",
+    "rank": 9
+  },
+  {
+    "name": "Restoration 1",
+    "segment": "contractor",
+    "website": "https://restoration1.com",
+    "domain": "restoration1.com",
+    "source_url": "https://restoration1.com",
+    "rank": 10
+  },
+  {
+    "name": "FirstOnSite Restoration",
+    "segment": "contractor",
+    "website": "https://firstonsite.com",
+    "domain": "firstonsite.com",
+    "source_url": "https://firstonsite.com",
+    "rank": 11
+  },
+  {
+    "name": "Crawford & Company",
+    "segment": "contractor",
+    "website": "https://crawco.com",
+    "domain": "crawco.com",
+    "source_url": "https://crawco.com",
+    "rank": 12
+  },
+  {
+    "name": "The Flood Company",
+    "segment": "contractor",
+    "website": "https://thefloodco.com",
+    "domain": "thefloodco.com",
+    "source_url": "https://thefloodco.com",
+    "rank": 13
+  },
+  {
+    "name": "ServiceMaster Clean",
+    "segment": "contractor",
+    "website": "https://servicemasterclean.com",
+    "domain": "servicemasterclean.com",
+    "source_url": "https://servicemasterclean.com",
+    "rank": 14
+  },
+  {
+    "name": "BMS CAT",
+    "segment": "contractor",
+    "website": "https://bmscat.com",
+    "domain": "bmscat.com",
+    "source_url": "https://bmscat.com",
+    "rank": 15
+  },
+  {
+    "name": "Titan Restoration",
+    "segment": "contractor",
+    "website": "https://titanrestoration.com",
+    "domain": "titanrestoration.com",
+    "source_url": "https://titanrestoration.com",
+    "rank": 16
+  },
+  {
+    "name": "US Restoration",
+    "segment": "contractor",
+    "website": "https://usrestoration.com",
+    "domain": "usrestoration.com",
+    "source_url": "https://usrestoration.com",
+    "rank": 17
+  },
+  {
+    "name": "RestorationSOS",
+    "segment": "contractor",
+    "website": "https://restorationsos.com",
+    "domain": "restorationsos.com",
+    "source_url": "https://restorationsos.com",
+    "rank": 18
+  },
+  {
+    "name": "Dry Pros Restoration",
+    "segment": "contractor",
+    "website": "https://dryprosrestoration.com",
+    "domain": "dryprosrestoration.com",
+    "source_url": "https://dryprosrestoration.com",
+    "rank": 19
+  },
+  {
+    "name": "DKI (Disaster Kleenup International)",
+    "segment": "contractor",
+    "website": "https://dki.com",
+    "domain": "dki.com",
+    "source_url": "https://dki.com",
+    "rank": 20
+  },
+  {
+    "name": "1-800 WATER DAMAGE",
+    "segment": "contractor",
+    "website": "https://1800waterdamage.com",
+    "domain": "1800waterdamage.com",
+    "source_url": "https://1800waterdamage.com",
+    "rank": 21
+  },
+  {
+    "name": "COIT Cleaning and Restoration",
+    "segment": "contractor",
+    "website": "https://coit.com",
+    "domain": "coit.com",
+    "source_url": "https://coit.com",
+    "rank": 22
+  },
+  {
+    "name": "Dry Pros Restoration",
+    "segment": "contractor",
+    "website": "https://drypros.com",
+    "domain": "drypros.com",
+    "source_url": "https://drypros.com",
+    "rank": 23
+  },
+  {
+    "name": "Sullivan Restoration",
+    "segment": "contractor",
+    "website": "https://sullivanrestoration.com",
+    "domain": "sullivanrestoration.com",
+    "source_url": "https://sullivanrestoration.com",
+    "rank": 24
+  },
+  {
+    "name": "ATI Restoration",
+    "segment": "contractor",
+    "website": "https://ati-restoration.com",
+    "domain": "ati-restoration.com",
+    "source_url": "https://ati-restoration.com",
+    "rank": 25
+  },
+  {
+    "name": "Cotton Global Disaster Solutions",
+    "segment": "contractor",
+    "website": "https://cottonglobal.com",
+    "domain": "cottonglobal.com",
+    "source_url": "https://cottonglobal.com",
+    "rank": 26
+  },
+  {
+    "name": "United Water Restoration Group",
+    "segment": "contractor",
+    "website": "https://unitedwaterrestoration.com",
+    "domain": "unitedwaterrestoration.com",
+    "source_url": "https://unitedwaterrestoration.com",
+    "rank": 27
+  },
+  {
+    "name": "Advantage Flood Restoration",
+    "segment": "contractor",
+    "website": "https://advantagefloodrestoration.com",
+    "domain": "advantagefloodrestoration.com",
+    "source_url": "https://advantagefloodrestoration.com",
+    "rank": 28
+  },
+  {
+    "name": "Flood Brothers Restoration",
+    "segment": "contractor",
+    "website": "https://floodbrothers.com",
+    "domain": "floodbrothers.com",
+    "source_url": "https://floodbrothers.com",
+    "rank": 29
+  },
+  {
+    "name": "Mold Busters",
+    "segment": "contractor",
+    "website": "https://moldbusters.com",
+    "domain": "moldbusters.com",
+    "source_url": "https://moldbusters.com",
+    "rank": 30
   },
   {
     "name": "Rainbow Restoration",
@@ -485,15 +245,7 @@
     "segment": "contractor",
     "website": "https://rainbowrestores.com",
     "source_url": "https://rainbowrestores.com",
-    "rank": 61
-  },
-  {
-    "name": "First Onsite Property Restoration",
-    "domain": "firstonsite.com",
-    "segment": "contractor",
-    "website": "https://firstonsite.com",
-    "source_url": "https://firstonsite.com",
-    "rank": 62
+    "rank": 31
   },
   {
     "name": "Cotton Holdings",
@@ -501,7 +253,23 @@
     "segment": "contractor",
     "website": "https://cottonholdings.com",
     "source_url": "https://cottonholdings.com",
-    "rank": 63
+    "rank": 32
+  },
+  {
+    "name": "DKI (Disaster Kleenup Intl)",
+    "domain": "dkiservices.com",
+    "segment": "contractor",
+    "website": "https://dkiservices.com",
+    "source_url": "https://dkiservices.com",
+    "rank": 33
+  },
+  {
+    "name": "ATI Restoration",
+    "domain": "atirestoration.com",
+    "segment": "contractor",
+    "website": "https://atirestoration.com",
+    "source_url": "https://atirestoration.com",
+    "rank": 34
   },
   {
     "name": "Interstate Restoration",
@@ -509,294 +277,294 @@
     "segment": "contractor",
     "website": "https://interstaterestoration.com",
     "source_url": "https://interstaterestoration.com",
-    "rank": 64
+    "rank": 35
   },
   {
-    "name": "AdvantaClean",
-    "domain": "advantaclean.com",
+    "name": "BluSky Restoration Contractors",
+    "domain": "goblusky.com",
     "segment": "contractor",
-    "website": "https://advantaclean.com",
-    "source_url": "https://advantaclean.com",
-    "rank": 65
+    "website": "https://goblusky.com",
+    "source_url": "https://goblusky.com",
+    "rank": 36
   },
   {
-    "name": "Investor Relations",
-    "segment": "tpa",
-    "website": "https://corvel.com",
-    "domain": "corvel.com",
-    "source_url": "https://www.corvel.com/static/432f3be76c37dc8d06369f99e1ae637e/Investor-Relations-February-2026.pdf",
-    "rank": 1
-  },
-  {
-    "name": "2025 Third",
-    "segment": "tpa",
-    "website": "https://businessinsurance.com",
-    "domain": "businessinsurance.com",
-    "source_url": "https://www.businessinsurance.com/biresources/2025-third-party-administrators/",
-    "rank": 2
-  },
-  {
-    "name": "10 Leading Insurance Third Party Administration Companies ...",
-    "segment": "tpa",
-    "website": "https://researchandmarkets.com",
-    "domain": "researchandmarkets.com",
-    "source_url": "https://www.researchandmarkets.com/articles/key-companies-in-insurance-third-party-administration-market",
-    "rank": 3
-  },
-  {
-    "name": "Insurance Third Party Administrators Companies",
-    "segment": "tpa",
-    "website": "https://mordorintelligence.com",
-    "domain": "mordorintelligence.com",
-    "source_url": "https://www.mordorintelligence.com/industry-reports/global-insurance-third-party-administrators-market/companies",
-    "rank": 4
-  },
-  {
-    "name": "Claims administration services & administrators",
+    "name": "Sedgwick",
     "segment": "tpa",
     "website": "https://sedgwick.com",
     "domain": "sedgwick.com",
-    "source_url": "https://www.sedgwick.com/claims-administration/",
-    "rank": 5
+    "source_url": "https://sedgwick.com",
+    "rank": 1
   },
   {
-    "name": "About UMR",
+    "name": "Gallagher Bassett",
     "segment": "tpa",
-    "website": "https://umr.com",
-    "domain": "umr.com",
-    "source_url": "https://www.umr.com/about-umr",
-    "rank": 6
+    "website": "https://gbtpa.com",
+    "domain": "gbtpa.com",
+    "source_url": "https://gbtpa.com",
+    "rank": 2
   },
   {
-    "name": "LYNX Services",
+    "name": "York Risk Services Group",
     "segment": "tpa",
-    "website": "https://lynxservices.com",
-    "domain": "lynxservices.com",
-    "source_url": "https://www.lynxservices.com/LYNXWeb/LynxServices",
-    "rank": 7
+    "website": "https://yorkrisk.com",
+    "domain": "yorkrisk.com",
+    "source_url": "https://yorkrisk.com",
+    "rank": 3
   },
   {
-    "name": "Lodestar Claims & Risk Services",
+    "name": "Broadspire",
     "segment": "tpa",
-    "website": "https://oldrepublic.com",
-    "domain": "oldrepublic.com",
-    "source_url": "https://oldrepublic.com/about/our-companies/lodestar-claims-risk-services",
-    "rank": 8
+    "website": "https://broadspire.com",
+    "domain": "broadspire.com",
+    "source_url": "https://broadspire.com",
+    "rank": 4
   },
   {
-    "name": "Third Party Administration",
-    "segment": "tpa",
-    "website": "https://crawco.com",
-    "domain": "crawco.com",
-    "source_url": "https://www.crawco.com/services/third-party-administration",
-    "rank": 9
-  },
-  {
-    "name": "Largest TPA companies in US",
-    "segment": "tpa",
-    "website": "https://prospectwiki.com",
-    "domain": "prospectwiki.com",
-    "source_url": "https://www.prospectwiki.com/largest-tpa-companies-in-us",
-    "rank": 10
-  },
-  {
-    "name": "smartcompliance.co",
-    "segment": "tpa",
-    "website": "https://smartcompliance.co",
-    "domain": "smartcompliance.co",
-    "source_url": "http://smartcompliance.co/wp-content/uploads/sc-ccmsi-case-study.pdf",
-    "rank": 11
-  },
-  {
-    "name": "About AmeriHealth Administrators",
-    "segment": "tpa",
-    "website": "https://amerihealth.com",
-    "domain": "amerihealth.com",
-    "source_url": "https://www.amerihealth.com/tpa/about/index.html",
-    "rank": 12
-  },
-  {
-    "name": "The Rise of Insurance Third Party Administrator Market",
-    "segment": "tpa",
-    "website": "https://prnewswire.com",
-    "domain": "prnewswire.com",
-    "source_url": "https://www.prnewswire.com/news-releases/the-rise-of-insurance-third-party-administrator-market-a-544-67-billion-industry-dominated-by-tech-giants---sedgwick-crawford-and-company-and-corvel-corp--the-insight-partners-302291307.html",
-    "rank": 13
-  },
-  {
-    "name": "Third",
-    "segment": "tpa",
-    "website": "https://dataintelo.com",
-    "domain": "dataintelo.com",
-    "source_url": "https://dataintelo.com/report/third-party-administrator-market",
-    "rank": 14
-  },
-  {
-    "name": "Top Third Party Administrator Companies",
-    "segment": "tpa",
-    "website": "https://third-party-administrator.insurancebusinessreview.com",
-    "domain": "third-party-administrator.insurancebusinessreview.com",
-    "source_url": "https://third-party-administrator.insurancebusinessreview.com/vendors/top-third-party-administrator-companies.html",
-    "rank": 15
-  },
-  {
-    "name": "Subrogation Services",
-    "segment": "tpa",
-    "website": "https://rawlingsgroup.com",
-    "domain": "rawlingsgroup.com",
-    "source_url": "https://www.rawlingsgroup.com/services/subrogation-services/",
-    "rank": 16
-  },
-  {
-    "name": "Vega",
-    "segment": "tpa",
-    "website": "https://vegaclaims.com",
-    "domain": "vegaclaims.com",
-    "source_url": "https://vegaclaims.com/",
-    "rank": 17
-  },
-  {
-    "name": "Insurance Third Party Administrators",
-    "segment": "tpa",
-    "website": "https://giiresearch.com",
-    "domain": "giiresearch.com",
-    "source_url": "https://giiresearch.com/report/moi2035118-insurance-third-party-administrators-market-share.html",
-    "rank": 18
-  },
-  {
-    "name": "P&C TPA",
-    "segment": "tpa",
-    "website": "https://davies-group.com",
-    "domain": "davies-group.com",
-    "source_url": "https://davies-group.com/northamerica/claims-solutions/property-casualty/tpa-and-pc/",
-    "rank": 19
-  },
-  {
-    "name": "Top 10 Best Claims Tpa Services",
-    "segment": "tpa",
-    "website": "https://worldmetrics.org",
-    "domain": "worldmetrics.org",
-    "source_url": "https://worldmetrics.org/service/claims-tpa/",
-    "rank": 20
-  },
-  {
-    "name": "TPA Services & Claims Administration",
-    "segment": "tpa",
-    "website": "https://eberls.com",
-    "domain": "eberls.com",
-    "source_url": "https://eberls.com/tpa-services/",
-    "rank": 21
-  },
-  {
-    "name": "Vanguard Claims Administration",
-    "segment": "tpa",
-    "website": "https://vanguardclaims.com",
-    "domain": "vanguardclaims.com",
-    "source_url": "https://vanguardclaims.com/",
-    "rank": 22
-  },
-  {
-    "name": "TRISTAR Insurance Group",
-    "segment": "tpa",
-    "website": "https://tristargroup.net",
-    "domain": "tristargroup.net",
-    "source_url": "https://tristargroup.net/",
-    "rank": 23
-  },
-  {
-    "name": "Insurance Claims Outsourcing",
-    "segment": "tpa",
-    "website": "https://tpa.ggasolutions.com",
-    "domain": "tpa.ggasolutions.com",
-    "source_url": "https://tpa.ggasolutions.com/our-solutions/claims-management/",
-    "rank": 24
-  },
-  {
-    "name": "CCMS & Associates",
-    "segment": "tpa",
-    "website": "https://ccmsclaims.com",
-    "domain": "ccmsclaims.com",
-    "source_url": "https://ccmsclaims.com/",
-    "rank": 25
-  },
-  {
-    "name": "Charles Taylor Named a Top 10 TPA by Business Insurance",
-    "segment": "tpa",
-    "website": "https://us.charlestaylor.com",
-    "domain": "us.charlestaylor.com",
-    "source_url": "https://us.charlestaylor.com/insights/top-tpa/",
-    "rank": 26
-  },
-  {
-    "name": "Patra Corporation",
-    "segment": "tpa",
-    "website": "https://patracorp.com",
-    "domain": "patracorp.com",
-    "source_url": "https://patracorp.com/",
-    "rank": 27
-  },
-  {
-    "name": "IMPERIAL Claims Services",
-    "segment": "tpa",
-    "website": "https://imperialclaimsservices.com",
-    "domain": "imperialclaimsservices.com",
-    "source_url": "https://imperialclaimsservices.com/",
-    "rank": 28
-  },
-  {
-    "name": "Interwoven Claim Management Group, LLC",
-    "segment": "tpa",
-    "website": "https://interwovenclaims.com",
-    "domain": "interwovenclaims.com",
-    "source_url": "https://interwovenclaims.com/",
-    "rank": 29
-  },
-  {
-    "name": "CLAIMS RESOLUTION CORPORATION, INC",
-    "segment": "tpa",
-    "website": "https://crctpa.com",
-    "domain": "crctpa.com",
-    "source_url": "https://crctpa.com/",
-    "rank": 30
-  },
-  {
-    "name": "Top Claims Processing Providers",
-    "segment": "tpa",
-    "website": "https://vendordirectory.shrm.org",
-    "domain": "vendordirectory.shrm.org",
-    "source_url": "https://vendordirectory.shrm.org/category/benefits-administration-outsourcing/claims-processing",
-    "rank": 31
-  },
-  {
-    "name": "Midway Insurance Management International",
-    "segment": "tpa",
-    "website": "https://mimiclaims.com",
-    "domain": "mimiclaims.com",
-    "source_url": "https://mimiclaims.com/",
-    "rank": 32
-  },
-  {
-    "name": "Convergent Claim Services",
-    "segment": "tpa",
-    "website": "https://convergentclaimservices.com",
-    "domain": "convergentclaimservices.com",
-    "source_url": "https://convergentclaimservices.com/",
-    "rank": 33
-  },
-  {
-    "name": "Paramount Health Services & Insurance TPA Pvt. Ltd.",
-    "segment": "tpa",
-    "website": "https://paramounttpa.com",
-    "domain": "paramounttpa.com",
-    "source_url": "https://paramounttpa.com/",
-    "rank": 34
-  },
-  {
-    "name": "Unwavering commitment to client service for more than 70 years",
+    "name": "ESIS",
     "segment": "tpa",
     "website": "https://esis.com",
     "domain": "esis.com",
-    "source_url": "https://www.esis.com/content/dam/chubb-sites/esis/esis-en/documents/esis_overview.pdf",
+    "source_url": "https://esis.com",
+    "rank": 5
+  },
+  {
+    "name": "CorVel Corporation",
+    "segment": "tpa",
+    "website": "https://corvel.com",
+    "domain": "corvel.com",
+    "source_url": "https://corvel.com",
+    "rank": 6
+  },
+  {
+    "name": "Risk Management Alternatives",
+    "segment": "tpa",
+    "website": "https://rmains.com",
+    "domain": "rmains.com",
+    "source_url": "https://rmains.com",
+    "rank": 7
+  },
+  {
+    "name": "Helmsman Management Services",
+    "segment": "tpa",
+    "website": "https://helmsmaninsurance.com",
+    "domain": "helmsmaninsurance.com",
+    "source_url": "https://helmsmaninsurance.com",
+    "rank": 8
+  },
+  {
+    "name": "Matrix Claims Management",
+    "segment": "tpa",
+    "website": "https://matrixclaims.com",
+    "domain": "matrixclaims.com",
+    "source_url": "https://matrixclaims.com",
+    "rank": 9
+  },
+  {
+    "name": "Sedgwick CMS",
+    "segment": "tpa",
+    "website": "https://sedgwickcms.com",
+    "domain": "sedgwickcms.com",
+    "source_url": "https://sedgwickcms.com",
+    "rank": 10
+  },
+  {
+    "name": "Berkley Accident and Health",
+    "segment": "tpa",
+    "website": "https://berkleyah.com",
+    "domain": "berkleyah.com",
+    "source_url": "https://berkleyah.com",
+    "rank": 11
+  },
+  {
+    "name": "AmTrust Financial Services",
+    "segment": "tpa",
+    "website": "https://amtrustfinancial.com",
+    "domain": "amtrustfinancial.com",
+    "source_url": "https://amtrustfinancial.com",
+    "rank": 12
+  },
+  {
+    "name": "J.S. Held",
+    "segment": "tpa",
+    "website": "https://jsheld.com",
+    "domain": "jsheld.com",
+    "source_url": "https://jsheld.com",
+    "rank": 13
+  },
+  {
+    "name": "Helmsman TPA",
+    "segment": "tpa",
+    "website": "https://helmsmantpa.com",
+    "domain": "helmsmantpa.com",
+    "source_url": "https://helmsmantpa.com",
+    "rank": 14
+  },
+  {
+    "name": "Poms & Associates",
+    "segment": "tpa",
+    "website": "https://pomsassoc.com",
+    "domain": "pomsassoc.com",
+    "source_url": "https://pomsassoc.com",
+    "rank": 15
+  },
+  {
+    "name": "TPA Group",
+    "segment": "tpa",
+    "website": "https://tpagroup.com",
+    "domain": "tpagroup.com",
+    "source_url": "https://tpagroup.com",
+    "rank": 16
+  },
+  {
+    "name": "MedRisk",
+    "segment": "tpa",
+    "website": "https://medrisknet.com",
+    "domain": "medrisknet.com",
+    "source_url": "https://medrisknet.com",
+    "rank": 17
+  },
+  {
+    "name": "Crawford & Company",
+    "segment": "tpa",
+    "website": "https://crawfordandcompany.com",
+    "domain": "crawfordandcompany.com",
+    "source_url": "https://crawfordandcompany.com",
+    "rank": 18
+  },
+  {
+    "name": "York Risk Services Group",
+    "segment": "tpa",
+    "website": "https://yorkrsg.com",
+    "domain": "yorkrsg.com",
+    "source_url": "https://yorkrsg.com",
+    "rank": 19
+  },
+  {
+    "name": "CNA Insurance",
+    "segment": "tpa",
+    "website": "https://cna.com",
+    "domain": "cna.com",
+    "source_url": "https://cna.com",
+    "rank": 20
+  },
+  {
+    "name": "One Call",
+    "segment": "tpa",
+    "website": "https://onecall.com",
+    "domain": "onecall.com",
+    "source_url": "https://onecall.com",
+    "rank": 21
+  },
+  {
+    "name": "Tristar Risk Management",
+    "segment": "tpa",
+    "website": "https://tristarrisk.com",
+    "domain": "tristarrisk.com",
+    "source_url": "https://tristarrisk.com",
+    "rank": 22
+  },
+  {
+    "name": "CCMSI",
+    "segment": "tpa",
+    "website": "https://ccmsi.com",
+    "domain": "ccmsi.com",
+    "source_url": "https://ccmsi.com",
+    "rank": 23
+  },
+  {
+    "name": "Risk Management Alternatives",
+    "segment": "tpa",
+    "website": "https://rmaltd.com",
+    "domain": "rmaltd.com",
+    "source_url": "https://rmaltd.com",
+    "rank": 24
+  },
+  {
+    "name": "Gallagher Bassett Services",
+    "segment": "tpa",
+    "website": "https://gallagherbassett.com",
+    "domain": "gallagherbassett.com",
+    "source_url": "https://gallagherbassett.com",
+    "rank": 25
+  },
+  {
+    "name": "McLarens",
+    "segment": "tpa",
+    "website": "https://mclarens.com",
+    "domain": "mclarens.com",
+    "source_url": "https://mclarens.com",
+    "rank": 26
+  },
+  {
+    "name": "The Hartford",
+    "segment": "tpa",
+    "website": "https://thehartford.com",
+    "domain": "thehartford.com",
+    "source_url": "https://thehartford.com",
+    "rank": 27
+  },
+  {
+    "name": "Allianz Global Corporate & Specialty",
+    "segment": "tpa",
+    "website": "https://agcs.allianz.com",
+    "domain": "agcs.allianz.com",
+    "source_url": "https://agcs.allianz.com",
+    "rank": 28
+  },
+  {
+    "name": "Berkshire Hathaway GUARD Insurance Companies",
+    "segment": "tpa",
+    "website": "https://guard.com",
+    "domain": "guard.com",
+    "source_url": "https://guard.com",
+    "rank": 29
+  },
+  {
+    "name": "AXIS Capital",
+    "segment": "tpa",
+    "website": "https://axiscapital.com",
+    "domain": "axiscapital.com",
+    "source_url": "https://axiscapital.com",
+    "rank": 30
+  },
+  {
+    "name": "Liberty Mutual Insurance",
+    "segment": "tpa",
+    "website": "https://libertymutual.com",
+    "domain": "libertymutual.com",
+    "source_url": "https://libertymutual.com",
+    "rank": 31
+  },
+  {
+    "name": "Chubb",
+    "segment": "tpa",
+    "website": "https://chubb.com",
+    "domain": "chubb.com",
+    "source_url": "https://chubb.com",
+    "rank": 32
+  },
+  {
+    "name": "Travelers Insurance",
+    "segment": "tpa",
+    "website": "https://travelers.com",
+    "domain": "travelers.com",
+    "source_url": "https://travelers.com",
+    "rank": 33
+  },
+  {
+    "name": "Zurich North America",
+    "segment": "tpa",
+    "website": "https://zurichna.com",
+    "domain": "zurichna.com",
+    "source_url": "https://zurichna.com",
+    "rank": 34
+  },
+  {
+    "name": "AIG",
+    "segment": "tpa",
+    "website": "https://aig.com",
+    "domain": "aig.com",
+    "source_url": "https://aig.com",
     "rank": 35
   }
 ]

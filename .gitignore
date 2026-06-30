@@ -48,3 +48,8 @@ automation/data/shard-*.txt
 automation/data/to-enrich.json
 automation/data/enrich.log
 automation/outbox/
+
+# python venv for scrapling (local only)
+automation/py/.venv/
+automation/outbox/
+automation/data/enrich.log

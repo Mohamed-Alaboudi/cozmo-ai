@@ -15,8 +15,10 @@
 import { writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { db, logActivity } from "../lib/db";
+import { sendEmail, emailConfigured } from "../lib/email";
 
-const LIVE = process.env.OUTBOUND_LIVE === "true";
+// LIVE sends real email only when BOTH the flag is on AND Resend is configured.
+const LIVE = process.env.OUTBOUND_LIVE === "true" && emailConfigured;
 const OUTBOX = resolve(process.cwd(), "automation/outbox");
 
 function arg(name: string): string | undefined {
@@ -24,13 +26,27 @@ function arg(name: string): string | undefined {
   return i !== -1 ? process.argv[i + 1] : undefined;
 }
 
-async function liveSend(_msg: unknown): Promise<{ ok: boolean; id?: string }> {
-  // INTENTIONALLY NOT IMPLEMENTED for the take-home. Wiring a provider
-  // (Resend/SendGrid/Instantly) goes here. The rest of the pipeline already
-  // records provider_id + status, so only this function changes to go live.
-  throw new Error(
-    "OUTBOUND_LIVE=true but no email provider is wired. Implement liveSend() before enabling."
-  );
+type QueueMsg = {
+  id: string;
+  account_id: string;
+  subject: string | null;
+  body: string | null;
+  to_email?: string | null;
+  accounts?: { name?: string; domain?: string } | null;
+};
+
+/** Send one email for real via Resend (only reached when LIVE === true). */
+async function liveSend(msg: QueueMsg): Promise<{ ok: boolean; id?: string }> {
+  const to =
+    msg.to_email ||
+    (msg.accounts?.domain ? `claims@${msg.accounts.domain}` : "");
+  const r = await sendEmail({
+    to,
+    subject: msg.subject ?? "Hello from Cozmo",
+    text: msg.body ?? "",
+  });
+  if (!r.ok) throw new Error(r.error ?? "send failed");
+  return { ok: true, id: r.id };
 }
 
 async function main() {
@@ -39,7 +55,9 @@ async function main() {
 
   const { data: drafts, error } = await db
     .from("messages")
-    .select("id, account_id, subject, body, send_mode, accounts(name, domain)")
+    .select(
+      "id, account_id, subject, body, send_mode, accounts(name, domain), contacts(email)",
+    )
     .eq("status", "draft")
     .limit(500);
   if (error) throw error;
@@ -52,9 +70,11 @@ async function main() {
   let sent = 0;
   for (const m of drafts) {
     const acc = (m as { accounts?: { name?: string; domain?: string } }).accounts;
+    const toEmail =
+      (m as { contacts?: { email?: string | null } }).contacts?.email ?? null;
     if (LIVE) {
       try {
-        const r = await liveSend(m);
+        const r = await liveSend({ ...(m as unknown as QueueMsg), to_email: toEmail });
         await db
           .from("messages")
           .update({ status: "sent", sent_at: new Date().toISOString(), provider_id: r.id ?? null })
