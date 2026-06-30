@@ -41,3 +41,10 @@ shot-*.png
 qa-*.png
 /.claude/
 /.watcher2/
+
+# automation scratch
+automation/data/worker-*.log
+automation/data/shard-*.txt
+automation/data/to-enrich.json
+automation/data/enrich.log
+automation/outbox/

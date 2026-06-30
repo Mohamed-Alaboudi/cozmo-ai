@@ -8,6 +8,7 @@ import { CallStatusPill, StatusPill } from "@/components/dashboard/status-pill";
 import { FilterBar, type FilterGroup } from "@/components/dashboard/filter-bar";
 import { relativeTime, formatDuration } from "@/lib/dashboard/data";
 import type { Call } from "@/lib/db/client";
+import { safeExternalHref } from "@/lib/dashboard/safe-url";
 
 /** A call enriched with its account name for display. */
 export type CallRow = Call & { accountName: string | null };
@@ -183,9 +184,9 @@ function CallDetail({ call }: { call: CallRow }) {
             {call.outcome}
           </p>
         ) : null}
-        {call.recording_url ? (
+        {safeExternalHref(call.recording_url) ? (
           <a
-            href={call.recording_url}
+            href={safeExternalHref(call.recording_url)!}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-3 inline-flex text-[12.5px] font-medium text-accent-text underline decoration-line underline-offset-2"

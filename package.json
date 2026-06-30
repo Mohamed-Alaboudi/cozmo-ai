@@ -7,7 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "outbound:discover": "tsx automation/scripts/discover.ts",
+    "outbound:enrich": "tsx automation/scripts/enrich.ts",
+    "outbound:personalize": "tsx automation/scripts/personalize.ts",
+    "outbound:queue": "tsx automation/scripts/queue.ts",
+    "outbound:follow-up": "tsx automation/scripts/follow-up.ts",
+    "outbound:all": "tsx automation/scripts/discover.ts && tsx automation/scripts/enrich.ts && tsx automation/scripts/personalize.ts && tsx automation/scripts/queue.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.109.0",
@@ -28,6 +34,7 @@
     "@types/react-dom": "^19.0.3",
     "playwright": "^1.61.1",
     "tailwindcss": "^4.1.0",
+    "tsx": "^4.22.4",
     "typescript": "^5.7.3"
   }
 }

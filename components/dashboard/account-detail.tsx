@@ -12,6 +12,7 @@ import type { AccountBundle } from "@/lib/dashboard/data";
 import { relativeTime, formatDuration } from "@/lib/dashboard/data";
 import { MessageStatusPill, CallStatusPill, StatusPill } from "@/components/dashboard/status-pill";
 import { cn } from "@/lib/cn";
+import { safeExternalHref } from "@/lib/dashboard/safe-url";
 
 /**
  * The expanded Contacts row. Four panels:
@@ -89,9 +90,9 @@ export function AccountDetail({ bundle }: { bundle: AccountBundle }) {
                 {[account.hq_city, account.hq_state].filter(Boolean).join(", ")}
               </span>
             ) : null}
-            {account.source_url ? (
+            {safeExternalHref(account.source_url) ? (
               <a
-                href={account.source_url}
+                href={safeExternalHref(account.source_url)!}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-[12px] font-medium text-ink underline decoration-line underline-offset-2 transition-colors hover:text-accent-text"
