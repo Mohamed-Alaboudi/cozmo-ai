@@ -674,16 +674,24 @@ export function Capabilities({
   items: Capability[];
   tone?: Tone;
 }) {
+  const cols =
+    items.length >= 4 ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-2 lg:grid-cols-3";
   return (
     <Section tone={tone}>
       <Container>
-        <SectionHeading eyebrow={eyebrow} title={title} sub={sub} />
+        <SectionHeading
+          eyebrow={eyebrow}
+          title={title}
+          sub={sub}
+          wide
+          titleClassName="max-w-none"
+        />
 
-        <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className={cn("mt-14 grid gap-x-8 gap-y-12", cols)}>
           {items.map((c, i) => (
             <Reveal
               key={c.title}
-              delay={(i % 3) * 80}
+              delay={(i % 4) * 80}
               className="border-t border-line pt-7"
             >
               <IconBadge name={c.icon} />
@@ -719,7 +727,14 @@ export function Integrations({
   return (
     <Section tone={tone}>
       <Container>
-        <SectionHeading eyebrow={eyebrow} title={title} sub={sub} />
+        <SectionHeading
+          eyebrow={eyebrow}
+          title={title}
+          sub={sub}
+          wide
+          titleClassName="max-w-none"
+          subClassName="max-w-none"
+        />
 
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((it, i) => (
@@ -770,7 +785,13 @@ export function SecuritySection({
   return (
     <Section tone={tone}>
       <Container>
-        <SectionHeading eyebrow={eyebrow} title={title} sub={sub} />
+        <SectionHeading
+          eyebrow={eyebrow}
+          title={title}
+          sub={sub}
+          wide
+          titleClassName="max-w-none"
+        />
 
         <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((s, i) => (
@@ -872,16 +893,6 @@ export function Faq({
           <Reveal>
             {eyebrow ? <Kicker>{eyebrow}</Kicker> : null}
             <H2>{title}</H2>
-            <p className="mt-6 max-w-[34ch] text-[15px] leading-[1.6] text-gray">
-              Still deciding? Email{" "}
-              <a
-                href={SITE.emailHref}
-                className="font-medium text-ink underline decoration-line underline-offset-4 transition-colors hover:text-accent-text"
-              >
-                {SITE.email}
-              </a>{" "}
-              and a human answers.
-            </p>
           </Reveal>
 
           <Reveal delay={80}>
@@ -940,29 +951,22 @@ export function DemoSection({
   return (
     <Section id="demo" tone={tone}>
       <Container>
-        <SectionHeading eyebrow={eyebrow} title={title} sub={sub} align="center" />
-
-        {/* just the phone to call + a button to book a demo, centered */}
-        <div className="mt-14 flex flex-col items-center">
-          <Reveal className="flex justify-center">
-            <PhoneStage />
+        {/* text on the LEFT, phone on the RIGHT */}
+        <div className="grid items-center gap-14 lg:grid-cols-[1fr_auto] lg:gap-20">
+          <Reveal className="lg:max-w-[640px]">
+            <Kicker>{eyebrow}</Kicker>
+            <H2 className="max-w-none lg:whitespace-nowrap">{title}</H2>
+            <Lede className="mt-6 max-w-[52ch]">{sub}</Lede>
+            <div className="mt-9 flex">
+              <DemoButton size="lg" className="w-full sm:w-auto">
+                Book a demo
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </DemoButton>
+            </div>
           </Reveal>
 
-          <Reveal delay={80} className="mt-10 flex flex-col items-center gap-4">
-            <DemoButton size="lg">
-              Book a demo
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </DemoButton>
-            <p className="flex items-center gap-2 text-[14px] text-gray">
-              <Phone className="size-4 text-accent-text" aria-hidden="true" />
-              Or dial{" "}
-              <a
-                href={SITE.demoPhoneHref}
-                className="tabular font-medium text-ink underline decoration-line underline-offset-4 hover:text-accent-text"
-              >
-                {SITE.demoPhone}
-              </a>
-            </p>
+          <Reveal delay={120} className="flex justify-center lg:justify-end">
+            <PhoneStage />
           </Reveal>
         </div>
       </Container>

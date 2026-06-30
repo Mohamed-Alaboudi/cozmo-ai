@@ -85,16 +85,8 @@ export function Footer() {
           </div>
         </div>
 
-        {/* TCPA / SMS consent */}
-        <p className="mt-14 max-w-[680px] border-t border-white/10 pt-8 text-[13px] font-light leading-[1.65] text-white/45">
-          By sharing your number you agree that {SITE.name} and {SITE.legalName}{" "}
-          may call and text you about a demo at that number, including via
-          automated technology. Consent is not a condition of purchase. Message
-          and data rates may apply. Reply STOP to opt out.
-        </p>
-
         {/* Copyright */}
-        <div className="mt-8 flex flex-col gap-2 border-t border-white/10 pt-6 text-[11.5px] tracking-[0.06em] text-white/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-2 border-t border-white/10 pt-6 text-[11.5px] tracking-[0.06em] text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p className="tabular">
             © {year} {SITE.legalName}
           </p>

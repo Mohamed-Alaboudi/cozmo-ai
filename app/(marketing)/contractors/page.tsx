@@ -9,7 +9,6 @@ import {
   HowItWorks,
   Integrations,
   ProblemSection,
-  ProofQuote,
   StatStrip,
 } from "@/components/marketing/sections";
 
@@ -65,8 +64,6 @@ export default function ContractorsPage() {
         items={contractors.integrations.items}
         tone="surface"
       />
-
-      <ProofQuote proof={contractors.proof} />
 
       <DemoSection
         eyebrow={contractors.cta.eyebrow}

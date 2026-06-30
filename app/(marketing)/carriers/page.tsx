@@ -17,7 +17,6 @@ import {
   HowItWorks,
   Integrations,
   ProblemSection,
-  ProofQuote,
   StatStrip,
 } from "@/components/marketing/sections";
 import { carriers } from "@/lib/content/carriers";
@@ -37,7 +36,6 @@ export default function CarriersPage() {
     capabilities,
     steps,
     integrations,
-    proof,
     faqs,
     cta,
   } = carriers;
@@ -82,8 +80,6 @@ export default function CarriersPage() {
         items={integrations.items}
         tone="surface"
       />
-
-      <ProofQuote proof={proof} />
 
       <DemoSection eyebrow={cta.eyebrow} title={cta.title} sub={cta.sub} />
 

@@ -8,7 +8,6 @@ import {
   HowItWorks,
   Integrations,
   ProblemSection,
-  ProofQuote,
   StatStrip,
 } from "@/components/marketing/sections";
 import { homeowners } from "@/lib/content/homeowners";
@@ -28,7 +27,6 @@ export default function HomeownersPage() {
     capabilities,
     steps,
     integrations,
-    proof,
     faqs,
     cta,
   } = homeowners;
@@ -74,8 +72,6 @@ export default function HomeownersPage() {
         sub={integrations.sub}
         items={integrations.items}
       />
-
-      <ProofQuote proof={proof} />
 
       <DemoSection eyebrow={cta.eyebrow} title={cta.title} sub={cta.sub} />
 

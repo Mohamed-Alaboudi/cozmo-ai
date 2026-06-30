@@ -10,7 +10,6 @@ import {
   Capabilities,
   Integrations,
   SecuritySection,
-  ProofQuote,
   Faq,
   DemoSection,
 } from "@/components/marketing/sections";
@@ -51,8 +50,6 @@ export default function HomePage() {
       <Integrations {...home.integrations} />
 
       <SecuritySection {...home.security} tone="surface" />
-
-      <ProofQuote proof={home.proof} />
 
       <DemoSection {...home.demo} />
 
