@@ -76,7 +76,7 @@ export function Funnel({ steps }: { steps: FunnelStep[] }) {
                   {conv}%
                 </span>
               ) : (
-                <span className="text-[12px] text-gray-2">—</span>
+                <span className="text-[12px] text-gray-2">·</span>
               )}
             </div>
           </div>

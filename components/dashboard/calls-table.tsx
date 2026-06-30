@@ -73,7 +73,7 @@ export function CallsTable({ calls }: { calls: CallRow[] }) {
         c.outcome ? (
           <span className="line-clamp-1 text-[13px] text-ink">{c.outcome}</span>
         ) : (
-          <span className="text-gray-2">—</span>
+          <span className="text-gray-2">·</span>
         ),
     },
     {
@@ -89,7 +89,7 @@ export function CallsTable({ calls }: { calls: CallRow[] }) {
             Yes
           </StatusPill>
         ) : (
-          <span className="text-gray-2">—</span>
+          <span className="text-gray-2">·</span>
         ),
     },
     {

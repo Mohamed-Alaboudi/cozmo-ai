@@ -31,7 +31,7 @@ export default async function LoginPage() {
             Sign in to the dashboard
           </h1>
           <p className="mt-2 max-w-[34ch] text-[14px] leading-[1.5] text-gray">
-            The live view of Cozmo&rsquo;s outbound funnel — scraping, personalization,
+            The live view of Cozmo&rsquo;s outbound funnel: scraping, personalization,
             sends and call follow-ups.
           </p>
         </div>

@@ -27,7 +27,7 @@ export default async function ContactsPage() {
       <PageHeader
         eyebrow="CRM"
         title="Contacts"
-        description="Every scraped account. Expand a row for its people, the Claude-personalized outreach, call outcomes, and why the engine targeted it."
+        description="Every scraped account, with people, personalized outreach, and call outcomes."
       />
       <ContactsTable bundles={bundles} />
     </>

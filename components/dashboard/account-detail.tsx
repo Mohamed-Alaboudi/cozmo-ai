@@ -181,7 +181,7 @@ export function AccountDetail({ bundle }: { bundle: AccountBundle }) {
             </ul>
           ) : (
             <p className="text-[13px] italic text-gray">
-              Not personalized yet — Claude drafts the sequence when this account enters a campaign.
+              Not personalized yet. Claude drafts the sequence when this account enters a campaign.
             </p>
           )}
         </Card>
@@ -224,7 +224,7 @@ export function AccountDetail({ bundle }: { bundle: AccountBundle }) {
             </ul>
           ) : (
             <p className="text-[13px] italic text-gray">
-              No calls yet — the phone agent dials after the email sequence runs.
+              No calls yet. The phone agent dials after the email sequence runs.
             </p>
           )}
         </Card>

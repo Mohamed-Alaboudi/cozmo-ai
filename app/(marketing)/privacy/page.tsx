@@ -44,17 +44,17 @@ export default function PrivacyPage() {
             <ul className="mt-3 space-y-2 text-[16px] leading-[1.7] text-gray">
               <li>
                 <strong className="text-ink">Contact details</strong> you submit
-                — name, phone number, and email — when you request a demo call or
+                like your name, phone number, and email, when you request a demo call or
                 reach out to us.
               </li>
               <li>
-                <strong className="text-ink">Call data</strong> — when you use a
+                <strong className="text-ink">Call data</strong>, when you use a
                 demo or live agent, the call may be recorded and transcribed to
                 operate and improve the service. Sensitive identifiers such as
                 card and policy numbers are redacted from logs.
               </li>
               <li>
-                <strong className="text-ink">Usage data</strong> — standard log
+                <strong className="text-ink">Usage data</strong>, standard log
                 and device information (IP address, browser, pages viewed)
                 collected automatically as you browse.
               </li>

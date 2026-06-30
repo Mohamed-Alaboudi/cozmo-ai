@@ -62,7 +62,7 @@ export function RunCampaignButton({
       if (!res.ok || !data.ok) {
         setResult({
           ok: false,
-          text: data.message ?? (res.status === 401 ? "Session expired — sign in again." : "Run failed."),
+          text: data.message ?? (res.status === 401 ? "Session expired, sign in again." : "Run failed."),
         });
         return;
       }
@@ -70,7 +70,7 @@ export function RunCampaignButton({
       // Re-fetch the server component so the per-step counts update.
       startTransition(() => router.refresh());
     } catch {
-      setResult({ ok: false, text: "Network error — try again." });
+      setResult({ ok: false, text: "Network error, try again." });
     } finally {
       setBusy(null);
     }

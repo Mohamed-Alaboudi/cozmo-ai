@@ -26,6 +26,27 @@ import {
 export const metadata: Metadata = { title: "Campaigns" };
 export const dynamic = "force-dynamic";
 
+/**
+ * Render a template string, turning {{merge_tokens}} into styled chips so the
+ * mail-merge variables read as intentional placeholders, not broken braces.
+ */
+function renderTemplate(text: string) {
+  const parts = text.split(/(\{\{\s*[\w.]+\s*\}\})/g);
+  return parts.map((part, i) => {
+    const m = part.match(/^\{\{\s*([\w.]+)\s*\}\}$/);
+    if (!m) return <span key={i}>{part}</span>;
+    return (
+      <span
+        key={i}
+        className="mx-0.5 inline-flex items-center rounded-[5px] bg-accent/10 px-1.5 py-px font-medium text-accent-text"
+        style={{ fontSize: "0.92em" }}
+      >
+        {m[1]}
+      </span>
+    );
+  });
+}
+
 export default async function CampaignsPage() {
   const [campaigns, steps, messages] = await Promise.all([
     getCampaigns(),
@@ -40,7 +61,7 @@ export default async function CampaignsPage() {
       <PageHeader
         eyebrow="Sequences"
         title="Campaigns"
-        description="Each outbound campaign and its multi-step email sequence. Per-step status counts update as the engine sends."
+        description="Each campaign and its email sequence, with live per-step status counts."
       />
 
       {views.length > 0 ? (
@@ -192,11 +213,11 @@ function SequenceStepCard({ view, isLast }: { view: StepView; isLast: boolean })
         </div>
 
         <p className="mt-3 text-[13.5px] font-semibold leading-snug text-ink">
-          {step.subject_template || "Untitled step"}
+          {renderTemplate(step.subject_template || "Untitled step")}
         </p>
         {step.body_template ? (
           <p className="mt-1.5 line-clamp-2 text-[12.5px] leading-[1.5] text-gray">
-            {step.body_template}
+            {renderTemplate(step.body_template)}
           </p>
         ) : null}
 

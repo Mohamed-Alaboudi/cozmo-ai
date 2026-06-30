@@ -22,8 +22,16 @@ export const dynamic = "force-dynamic";
  *                 funnel forward (idempotent-ish), each transition logging
  *                 matching "opened"/"replied" activity.
  *
- * Never sends real email. Always returns JSON; never 500s on an empty result —
+ * Never sends real email. Always returns JSON; never 500s on an empty result;
  * an empty campaign returns ok with zero counts.
+ *
+ * Multi-tenancy note (re: IDOR review): this is a SINGLE-TENANT demo. There is
+ * one shared dashboard password and no per-user accounts, so isAuthed() proves
+ * "a dashboard operator", not a specific user identity, and campaigns have no
+ * owner/tenant column to scope by. Constraining queries by a session account id
+ * is therefore not applicable here; the authed-session gate is the correct
+ * boundary. If this ever becomes multi-tenant, add an owner column to campaigns
+ * and an .eq("owner_id", session.userId) on every query below.
  */
 
 type Action = "advance" | "send_drafts";
@@ -141,7 +149,7 @@ export async function POST(req: Request) {
       message:
         sent > 0
           ? `Sent ${sent} draft${sent === 1 ? "" : "s"} (dry-run).`
-          : "No drafts to send — try advancing the sequence.",
+          : "No drafts to send. Try advancing the sequence.",
     });
   }
 
@@ -218,6 +226,6 @@ export async function POST(req: Request) {
     ok: true,
     opened,
     replied,
-    message: parts.length > 0 ? parts.join(", ") : "Sequence is fully progressed — no new movement.",
+    message: parts.length > 0 ? parts.join(", ") : "Sequence is fully progressed, no new movement.",
   });
 }

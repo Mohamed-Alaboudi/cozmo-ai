@@ -20,7 +20,7 @@ export default async function CallsPage() {
       <PageHeader
         eyebrow="Phone follow-ups"
         title="Calls"
-        description="The AI phone agent's calls — triggered after the email sequence. Expand a call for its outcome and full transcript."
+        description="The AI phone agent's follow-up calls, with outcomes and full transcripts."
       />
       <CallsTable calls={rows} />
     </>

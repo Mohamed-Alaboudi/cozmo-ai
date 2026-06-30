@@ -480,9 +480,9 @@ function toLocalISO(d: Date): string {
 
 /** "3m ago", "2h ago", "Jun 30" — compact relative time for feeds/tables. */
 export function relativeTime(iso: string | null | undefined): string {
-  if (!iso) return "—";
+  if (!iso) return "·";
   const then = new Date(iso).getTime();
-  if (Number.isNaN(then)) return "—";
+  if (Number.isNaN(then)) return "·";
   const diff = Date.now() - then;
   const min = Math.round(diff / 60000);
   if (min < 1) return "just now";
@@ -496,7 +496,7 @@ export function relativeTime(iso: string | null | undefined): string {
 
 /** Seconds → "m:ss" for call durations. */
 export function formatDuration(seconds: number | null | undefined): string {
-  if (seconds == null || Number.isNaN(seconds)) return "—";
+  if (seconds == null || Number.isNaN(seconds)) return "·";
   const m = Math.floor(seconds / 60);
   const s = Math.floor(seconds % 60);
   return `${m}:${String(s).padStart(2, "0")}`;

@@ -49,7 +49,7 @@ export default async function OverviewPage() {
       <PageHeader
         eyebrow="Outbound engine"
         title="Overview"
-        description="The live funnel — every account from scrape to booked demo, plus what the engine did today."
+        description="The live funnel from scrape to booked demo, plus today's activity."
       />
 
       {!dbConfigured ? (

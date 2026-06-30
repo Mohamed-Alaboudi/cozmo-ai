@@ -97,7 +97,7 @@ export function ContactsTable({ bundles }: { bundles: AccountBundle[] }) {
         b.account.mapped_page ? (
           <span className="text-[13px] text-gray">/{b.account.mapped_page}</span>
         ) : (
-          <span className="text-gray-2">—</span>
+          <span className="text-gray-2">·</span>
         ),
     },
     {
@@ -110,7 +110,7 @@ export function ContactsTable({ bundles }: { bundles: AccountBundle[] }) {
         b.account.rank != null ? (
           <span className="tabular text-[13px] font-medium text-ink">#{b.account.rank}</span>
         ) : (
-          <span className="text-gray-2">—</span>
+          <span className="text-gray-2">·</span>
         ),
     },
     {
