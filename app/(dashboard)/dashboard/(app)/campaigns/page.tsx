@@ -66,9 +66,13 @@ function CampaignCard({ view }: { view: CampaignView }) {
             <h2 className="font-disp text-[18px] font-semibold tracking-[-0.01em] text-ink">
               {campaign.name}
             </h2>
-            <StatusPill tone={campaign.status === "active" ? "good" : "neutral"}>
-              {campaign.status}
-            </StatusPill>
+            {/* Only call it "active" once it has actually sent something;
+                otherwise it's still a draft (nothing has gone out yet). */}
+            {sent > 0 ? (
+              <StatusPill tone="good">active</StatusPill>
+            ) : (
+              <StatusPill tone="neutral">draft</StatusPill>
+            )}
           </div>
           <div className="mt-2 flex flex-wrap items-center gap-2 text-[12.5px] text-gray">
             <SegmentPill segment={campaign.segment} />
