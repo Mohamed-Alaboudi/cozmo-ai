@@ -310,9 +310,9 @@ export function PhoneStage(_props?: { scene?: PhoneScene }) {
           className="pointer-events-none absolute left-1/2 top-[22%] -z-0 size-56 -translate-x-1/2 rounded-full bg-accent/10 blur-[64px]"
         />
 
-        {/* centered brand logo - solid light disc so the dark mark stays crisp */}
+        {/* centered brand logo - solid warm disc so the dark mark stays crisp */}
         <div className="relative z-10 flex flex-col items-center pt-3">
-          <div className="mb-5 flex size-24 items-center justify-center overflow-hidden rounded-full bg-paper ring-1 ring-white/15">
+          <div className="mb-5 flex size-24 items-center justify-center overflow-hidden rounded-full bg-paper-2 ring-1 ring-white/15">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/brand/cozmo-icon.png"
