@@ -185,25 +185,43 @@ function Kicker({
   );
 }
 
-/** Eyebrow + heavy ink H2 + optional gray lede. Left, or centered for CTAs. */
+/** Eyebrow + heavy ink H2 + optional gray lede. Left, or centered for CTAs.
+ *  `wide` lets a heading + lede run full width (one long line instead of wrapping). */
 function SectionHeading({
   eyebrow,
   title,
   sub,
   align = "left",
+  wide = false,
+  titleClassName,
+  subClassName,
 }: {
   eyebrow?: string;
   title: string;
   sub?: string;
   align?: "left" | "center";
+  wide?: boolean;
+  titleClassName?: string;
+  subClassName?: string;
 }) {
   const centered = align === "center";
   return (
-    <Reveal className={cn("max-w-[860px]", centered && "mx-auto text-center")}>
+    <Reveal
+      className={cn(
+        wide ? "max-w-none" : "max-w-[860px]",
+        centered && "mx-auto text-center",
+      )}
+    >
       {eyebrow ? <Kicker>{eyebrow}</Kicker> : null}
-      <H2 className={cn(centered && "mx-auto")}>{title}</H2>
+      <H2 className={cn(centered && "mx-auto", titleClassName)}>{title}</H2>
       {sub ? (
-        <Lede className={cn("mt-6 max-w-[60ch]", centered && "mx-auto")}>
+        <Lede
+          className={cn(
+            "mt-6 max-w-[60ch]",
+            centered && "mx-auto",
+            subClassName,
+          )}
+        >
           {sub}
         </Lede>
       ) : null}
@@ -331,13 +349,12 @@ export function Hero({
   eyebrow,
   h1,
   sub,
-  heroStat,
 }: {
   eyebrow: string;
   h1: string;
   sub: string;
-  heroStat: Stat;
-  /** Legacy props — no longer rendered (phone is logo+form, no photo). */
+  /** Legacy props — no longer rendered (heroStat strip removed; phone is logo+form, no photo). */
+  heroStat?: Stat;
   scene?: PhoneScene;
   image?: string;
 }) {
@@ -361,22 +378,6 @@ export function Hero({
                 Book a demo
                 <ArrowRight className="size-4" aria-hidden="true" />
               </DemoButton>
-            </div>
-
-            <div className="mt-11 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-line pt-7">
-              <div className="flex items-baseline gap-3">
-                <span className="tabular text-[34px] font-bold leading-none text-ink">
-                  {heroStat.value}
-                </span>
-                <span className="max-w-[15ch] text-[14px] leading-[1.3] text-gray">
-                  {heroStat.label}
-                </span>
-              </div>
-              {heroStat.sub ? (
-                <p className="max-w-[26ch] border-l border-line pl-8 text-[13.5px] leading-[1.4] text-gray-2">
-                  {heroStat.sub}
-                </p>
-              ) : null}
             </div>
           </Reveal>
 
@@ -491,7 +492,12 @@ export function ProblemSection({
   return (
     <Section tone={tone}>
       <Container>
-        <SectionHeading eyebrow={eyebrow} title={title} />
+        <SectionHeading
+          eyebrow={eyebrow}
+          title={title}
+          wide
+          titleClassName="max-w-none"
+        />
 
         <div className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-3">
           {pains.map((p, i) => (
@@ -543,7 +549,14 @@ export function SegmentSelector({
   return (
     <Section tone={tone}>
       <Container>
-        <SectionHeading eyebrow={eyebrow} title={title} sub={sub} />
+        <SectionHeading
+          eyebrow={eyebrow}
+          title={title}
+          sub={sub}
+          wide
+          titleClassName="max-w-none"
+          subClassName="max-w-none"
+        />
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {segments.map((seg, i) => (
