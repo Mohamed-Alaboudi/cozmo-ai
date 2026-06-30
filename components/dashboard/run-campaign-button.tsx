@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Play, FastForward, Loader2, Check, TriangleAlert } from "lucide-react";
+import { Play, Radio, Loader2, Check, TriangleAlert } from "lucide-react";
 
 /**
  * Dashboard control to run an outbound campaign against the outbound pipeline.
@@ -83,6 +83,21 @@ export function RunCampaignButton({
 
   return (
     <div className="flex flex-wrap items-center gap-2">
+      {/* "Live" only while a run is actually executing (per request). */}
+      {running ? (
+        <span
+          className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-[3px] text-[12px] font-medium leading-none"
+          style={{
+            backgroundColor: "rgba(60,122,67,0.09)",
+            color: "#3c7a43",
+            borderColor: "rgba(60,122,67,0.26)",
+          }}
+        >
+          <Radio className="size-3 animate-pulse" aria-hidden="true" />
+          Live
+        </span>
+      ) : null}
+
       {result ? (
         <span
           role="status"
@@ -115,21 +130,6 @@ export function RunCampaignButton({
           <Play className="size-3.5" aria-hidden="true" />
         )}
         {primaryLabel}
-      </button>
-
-      <button
-        type="button"
-        onClick={() => run("advance")}
-        disabled={running}
-        className="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-[5px] text-[12.5px] font-semibold text-gray transition-colors hover:border-ink/30 hover:text-ink disabled:cursor-not-allowed disabled:opacity-60"
-        title="Move sent to opened to replied"
-      >
-        {busy === "advance" ? (
-          <Loader2 className="size-3.5 animate-spin" aria-hidden="true" />
-        ) : (
-          <FastForward className="size-3.5" aria-hidden="true" />
-        )}
-        Advance sequence
       </button>
     </div>
   );

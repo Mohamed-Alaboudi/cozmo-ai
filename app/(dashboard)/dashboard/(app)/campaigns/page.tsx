@@ -1,50 +1,20 @@
 import type { Metadata } from "next";
-import {
-  Send,
-  Radio,
-  Clock,
-  ArrowRight,
-  MailCheck,
-  Reply,
-  Megaphone,
-} from "lucide-react";
+import { Send, MailCheck, Reply, Megaphone } from "lucide-react";
 import { PageHeader, Panel } from "@/components/dashboard/panel";
 import { EmptyState } from "@/components/dashboard/empty-state";
-import { StatusPill, SegmentPill, MessageStatusPill } from "@/components/dashboard/status-pill";
+import { StatusPill, SegmentPill } from "@/components/dashboard/status-pill";
 import { RunCampaignButton } from "@/components/dashboard/run-campaign-button";
+import { SequenceStepCard } from "@/components/dashboard/sequence-step-card";
 import {
   getCampaigns,
   getSequenceSteps,
   getMessages,
   buildCampaignViews,
-  MESSAGE_STATUS_ORDER,
   type CampaignView,
-  type StepView,
 } from "@/lib/dashboard/data";
 
 export const metadata: Metadata = { title: "Campaigns" };
 export const dynamic = "force-dynamic";
-
-/**
- * Render a template string, turning {{merge_tokens}} into styled chips so the
- * mail-merge variables read as intentional placeholders, not broken braces.
- */
-function renderTemplate(text: string) {
-  const parts = text.split(/(\{\{\s*[\w.]+\s*\}\})/g);
-  return parts.map((part, i) => {
-    const m = part.match(/^\{\{\s*([\w.]+)\s*\}\}$/);
-    if (!m) return <span key={i}>{part}</span>;
-    return (
-      <span
-        key={i}
-        className="mx-0.5 inline-flex items-center rounded-[5px] bg-accent/10 px-1.5 py-px font-medium text-accent-text"
-        style={{ fontSize: "0.92em" }}
-      >
-        {m[1]}
-      </span>
-    );
-  });
-}
 
 export default async function CampaignsPage() {
   const [campaigns, steps, messages] = await Promise.all([
@@ -112,10 +82,8 @@ function CampaignCard({ view }: { view: CampaignView }) {
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
-          <StatusPill tone="good">
-            <Radio className="size-3" aria-hidden="true" />
-            Live
-          </StatusPill>
+          {/* The "Live"/"Running" indicator now lives inside RunCampaignButton
+              and only shows while a run/advance is actually executing. */}
           <RunCampaignButton campaignId={campaign.id} hasDrafts={hasDrafts} />
         </div>
       </header>
@@ -181,58 +149,3 @@ function Rollup({
   );
 }
 
-function SequenceStepCard({ view, isLast }: { view: StepView; isLast: boolean }) {
-  const { step, total, counts } = view;
-  return (
-    <li className="relative">
-      {/* connector arrow between cards on desktop */}
-      {!isLast ? (
-        <span
-          aria-hidden="true"
-          className="absolute -right-3 top-1/2 z-[1] hidden -translate-y-1/2 text-gray-2 md:block"
-        >
-          <ArrowRight className="size-4" />
-        </span>
-      ) : null}
-
-      <div className="h-full rounded-[12px] border border-line bg-paper-2/40 p-4">
-        <div className="flex items-center justify-between">
-          <span className="inline-flex size-7 items-center justify-center rounded-full bg-ink text-[12px] font-bold text-paper tabular">
-            {step.step_no}
-          </span>
-          <span className="inline-flex items-center gap-1 text-[11.5px] text-gray">
-            <Clock className="size-3 text-gray-2" aria-hidden="true" />
-            {step.delay_days === 0 ? "Day 0" : `+${step.delay_days}d`}
-          </span>
-        </div>
-
-        <p className="mt-3 text-[13.5px] font-semibold leading-snug text-ink">
-          {renderTemplate(step.subject_template || "Untitled step")}
-        </p>
-        {step.body_template ? (
-          <p className="mt-1.5 line-clamp-2 text-[12.5px] leading-[1.5] text-gray">
-            {renderTemplate(step.body_template)}
-          </p>
-        ) : null}
-
-        {/* per-step status counts */}
-        <div className="mt-3 border-t border-line pt-3">
-          {total > 0 ? (
-            <div className="flex flex-wrap gap-1.5">
-              {MESSAGE_STATUS_ORDER.filter((s) => counts[s]).map((s) => (
-                <span key={s} className="inline-flex items-center gap-1">
-                  <MessageStatusPill status={s} />
-                  <span className="tabular text-[11px] font-semibold text-gray-2">
-                    {counts[s]}
-                  </span>
-                </span>
-              ))}
-            </div>
-          ) : (
-            <p className="text-[12px] italic text-gray-2">No sends yet</p>
-          )}
-        </div>
-      </div>
-    </li>
-  );
-}
