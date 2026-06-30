@@ -310,14 +310,16 @@ export function PhoneStage(_props?: { scene?: PhoneScene }) {
           className="pointer-events-none absolute left-1/2 top-[22%] -z-0 size-56 -translate-x-1/2 rounded-full bg-accent/10 blur-[64px]"
         />
 
-        {/* centered brand logo in a glass card */}
+        {/* centered brand logo - solid light disc so the dark mark stays crisp */}
         <div className="relative z-10 flex flex-col items-center pt-3">
-          <div className="mb-5 flex size-28 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/[0.04] p-1 backdrop-blur-md">
+          <div className="mb-5 flex size-24 items-center justify-center overflow-hidden rounded-full bg-paper ring-1 ring-white/15">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/brand/cozmo-icon.png"
               alt="Cozmo"
-              className="size-full rounded-full object-contain"
+              width={96}
+              height={96}
+              className="size-[78%] object-contain"
             />
           </div>
 
@@ -363,14 +365,11 @@ export function Hero({
       <Container>
         <div className="grid items-center gap-14 lg:grid-cols-[1.04fr_0.96fr] lg:gap-16">
           {/* copy */}
-          <Reveal className="max-w-[600px]">
+          <Reveal className="max-w-[680px]">
             <Kicker>{eyebrow}</Kicker>
-            <Display
-              as="h1"
-              className="text-[clamp(40px,6.2vw,84px)] leading-[0.95]"
-            >
-              <AccentHeadline text={h1} />
-            </Display>
+            <h1 className="display-serif text-[clamp(34px,4.4vw,54px)]">
+              {h1}
+            </h1>
             <Lede className="mt-6 max-w-[44ch]">{sub}</Lede>
 
             <div className="mt-9 flex">
@@ -410,16 +409,16 @@ function CoverageMarquee() {
   return (
     <div
       aria-hidden="true"
-      className="overflow-hidden border-y bg-ink py-3.5"
+      className="overflow-hidden border-y bg-ink py-2"
       style={{ borderColor: "var(--color-line-d)" }}
     >
       <div className="cozmo-marquee flex w-max items-center whitespace-nowrap will-change-transform">
         {row.map((c, i) => (
           <span key={i} className="flex items-center">
-            <span className="font-disp text-[15px] font-medium tracking-[-0.01em] text-white/85">
+            <span className="font-disp text-[13px] font-medium tracking-[-0.01em] text-white/85">
               {c}
             </span>
-            <span className="mx-7 text-[11px] text-accent-hi">&#10022;</span>
+            <span className="mx-6 text-[10px] text-accent-hi">&#10022;</span>
           </span>
         ))}
       </div>
@@ -450,7 +449,7 @@ export function StatStrip({
           <div className={cn("grid gap-x-6 gap-y-10 sm:gap-x-10", cols)}>
             {stats.map((s, i) => (
               <Reveal key={s.label} delay={i * 70}>
-                <div className="border-t border-line pt-5">
+                <div>
                   <div className="tabular text-[clamp(30px,3.4vw,52px)] font-bold leading-[0.95] text-ink">
                     {s.value}
                   </div>
@@ -511,16 +510,16 @@ export function ProblemSection({
           ))}
         </div>
 
-        {/* the single accent moment: the resolution, centered */}
-        <Reveal delay={140} className="mt-14 border-t border-line pt-12">
-          <div className="mx-auto flex max-w-[60ch] flex-col items-center text-center">
+        {/* the single accent moment: the resolution */}
+        <Reveal delay={140} className="mt-14 border-t border-line pt-10">
+          <div className="flex items-center gap-4">
             <span
               aria-hidden="true"
-              className="mb-5 inline-flex size-10 items-center justify-center rounded-full bg-accent text-white"
+              className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-accent text-white"
             >
               <ArrowRight className="size-4" />
             </span>
-            <p className="font-disp text-[22px] font-medium leading-[1.3] tracking-[-0.01em] text-ink md:text-[26px]">
+            <p className="font-disp text-[18px] font-medium leading-[1.35] tracking-[-0.01em] text-ink md:text-[21px]">
               {resolution}
             </p>
           </div>
@@ -630,7 +629,12 @@ export function HowItWorks({
   return (
     <Section tone={tone}>
       <Container>
-        <SectionHeading eyebrow={eyebrow} title={title} />
+        <SectionHeading
+          eyebrow={eyebrow}
+          title={title}
+          wide
+          titleClassName="max-w-none"
+        />
 
         <div className={cn("mt-14 grid gap-x-10 gap-y-12", cols)}>
           {steps.map((st, i) => (
@@ -685,6 +689,7 @@ export function Capabilities({
           sub={sub}
           wide
           titleClassName="max-w-none"
+          subClassName="max-w-none"
         />
 
         <div className={cn("mt-14 grid gap-x-8 gap-y-12", cols)}>

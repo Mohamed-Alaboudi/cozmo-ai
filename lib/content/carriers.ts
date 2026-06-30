@@ -80,7 +80,7 @@ export const carriers: SegmentContent = {
       },
     ],
     resolution:
-      "Cozmo answers on the first ring, files the FNOL, deflects status checks, and hands adjusters only the calls that need a human.",
+      "Cozmo answers on the first ring, files the FNOL, and routes only the calls that need a human.",
   },
   capabilities: {
     eyebrow: "Capabilities",
