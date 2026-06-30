@@ -40,6 +40,16 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href={SITE.dashboardUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[15px] font-light text-white/75 transition-colors hover:text-paper"
+                >
+                  Dashboard
+                </a>
+              </li>
             </ul>
           </div>
 

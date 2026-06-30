@@ -17,6 +17,8 @@ export const SITE = {
     "https://meetings.hubspot.com/alok-k?utm_source=website&utm_medium=cta&utm_campaign=demo&utm_content=talk-to-us&uuid=9f0102e2-ea92-48c2-af80-7d9a0cee941f",
   privacyHref: "/privacy",
   termsHref: "/terms",
+  // Cozmo CRM dashboard (separate deployment).
+  dashboardUrl: "https://cozmo-ai-dashboard.vercel.app/dashboard",
   calendlyUrl: process.env.NEXT_PUBLIC_CALENDLY_URL ?? "",
 } as const;
 
