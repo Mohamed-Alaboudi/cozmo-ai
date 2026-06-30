@@ -30,10 +30,11 @@ export async function POST(req: Request) {
   }
   // Read from header, not body, so it never appears in request-body logs.
   const provided = req.headers.get("x-agent-secret") ?? "";
-  const secretBuf = Buffer.from(secret);
-  const providedBuf = Buffer.alloc(secretBuf.length);
-  Buffer.from(provided).copy(providedBuf);
-  if (!timingSafeEqual(secretBuf, providedBuf)) {
+  const secretBuf = Buffer.from(secret, "utf8");
+  const providedBuf = Buffer.from(provided, "utf8");
+  const lengthMatch = providedBuf.length === secretBuf.length;
+  // Always call timingSafeEqual (avoids timing leak on length mismatch) but only pass if lengths match.
+  if (!lengthMatch || !timingSafeEqual(secretBuf, lengthMatch ? providedBuf : Buffer.alloc(secretBuf.length))) {
     return NextResponse.json({ ok: false, error: "unauthorized" }, { status: 401 });
   }
 
