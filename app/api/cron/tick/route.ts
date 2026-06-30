@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { timingSafeEqual } from "crypto";
 import { dbAdmin, dbConfigured } from "@/lib/db/client";
 
 export const dynamic = "force-dynamic";
@@ -12,16 +13,22 @@ export const dynamic = "force-dynamic";
  * sent_at) so the funnel moves, and logs activity. Live sending stays gated
  * behind OUTBOUND_LIVE + a wired provider in the automation layer.
  *
- * Protected by CRON_SECRET when set (Vercel Cron sends it as a bearer).
+ * Auth: fails CLOSED. CRON_SECRET must be set (Vercel Cron sends it as a
+ * bearer); without it the route refuses all requests. Compared in constant time.
  */
 export async function GET(req: Request) {
   const secret = process.env.CRON_SECRET;
-  if (secret) {
-    const auth = req.headers.get("authorization");
-    if (auth !== `Bearer ${secret}`) {
-      return NextResponse.json({ ok: false, error: "unauthorized" }, { status: 401 });
-    }
+  if (!secret) {
+    return NextResponse.json({ ok: false, error: "server not configured" }, { status: 503 });
   }
+  const auth = req.headers.get("authorization") ?? "";
+  const expected = `Bearer ${secret}`;
+  const a = Buffer.from(auth);
+  const b = Buffer.from(expected);
+  if (a.length !== b.length || !timingSafeEqual(a, b)) {
+    return NextResponse.json({ ok: false, error: "unauthorized" }, { status: 401 });
+  }
+
   if (!dbConfigured) {
     return NextResponse.json({ ok: false, error: "db not configured" }, { status: 503 });
   }
