@@ -22,11 +22,11 @@ Open **`/dashboard`** (password `cozmo-demo`). The Overview shows the funnel mov
 On the **Contacts** page, expand any account: you see the contacts, the **Claude-written opener**, the **"why this account"** provenance (fit reason + Exa source + mapped page), and any call outcome/transcript. Then trigger a follow-up call to your own phone — the agent opens with *"I'm reaching out from Cozmo about your claim-intake call handling…"*, references that specific company, and the booking lands back as a row in the CRM in front of you. That single chain proves **list → personalize → send → follow-up → close**, end to end.
 
 ## The phone agent (real)
-- Agent: `agent_5301kwbtt4hsf3197ft3rm79g4jd` ("Cozmo — Insurance Outreach"), ElevenLabs ConvAI.
-- Number: **+1 346 248 8408** (fresh Telnyx number, wired to ElevenLabs over SIP using the proven FQDN handshake).
+- Agent: `agent_0701kwd8fsxje1hs19va057sa5nq` ("Cozmo - Insurance Outreach (Outbound)"), ElevenLabs Conversational AI. Voice: Hamood. TTS: `eleven_multilingual_v2`, speed 0.9, stability 0.7 / similarity 0.85 (steady, consistent tone), `elevenlabs` text normalization (numbers, dates, emails read correctly). Patient turn-taking, checks in after ~5s of silence, and is kept on-topic by focus + prompt-injection guardrails.
+- Number: **+1 734 888 9543** (ElevenLabs-managed Twilio number, inbound to the agent).
 - Knows: what Cozmo does, outcome-based pricing, and the homeowners/contractors/carriers use cases (knowledge built from the site content).
 - Tools (webhooks → `/api/agent/*`, always-200, write to the `cozmo` schema): `book_demo`, `log_interest`, `lookup_account`, `take_message`. Each call is triggered with a pre-created `call_id` so the agent's tool-writes update the right CRM row.
-- See `automation/agent/README.md` for IDs + the exact re-run/trigger commands, and `automation/agent/BUILD-LOG.md` for the live-call evidence.
+- See `automation/agent/README.md` for the rebuild/verify commands.
 
 ## How I'd scale this
 - **Sends:** flip `OUTBOUND_LIVE=true` and wire a warmed-domain provider (Resend/Instantly) in `queue.ts:liveSend()`; add per-domain caps, plain-text + opt-out, and inbox warmup. Everything downstream already records status/provider_id.
