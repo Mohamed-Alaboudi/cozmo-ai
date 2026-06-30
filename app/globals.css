@@ -169,3 +169,17 @@ body {
     transform: none !important;
   }
 }
+
+/* ============================================================
+   Dashboard (CRM) — expandable-row reveal
+   ============================================================ */
+@keyframes dashExpand {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
